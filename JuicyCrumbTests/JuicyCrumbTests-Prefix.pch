@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'JuicyCrumbTests' target in the 'JuicyCrumbTests' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif
