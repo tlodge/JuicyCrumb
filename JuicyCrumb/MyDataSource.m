@@ -49,7 +49,7 @@
     NSMutableArray *updatedItems = [NSMutableArray arrayWithCapacity:modelItems.count];
      
     for (Crumb* crumb in modelItems){
-        TTTableTextItem *item = [TTTableTextItem itemWithText:crumb.content  URL:@"tt://response/hello"];
+        TTTableTextItem *item = [TTTableTextItem itemWithText:crumb.content  URL:@"tt://detail/ooh"];
         //TTTableCaptionItem *item = [TTTableCaptionItem itemWithText:crumb.content];
         [updatedItems addObject:item];
     }

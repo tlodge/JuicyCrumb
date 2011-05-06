@@ -10,6 +10,7 @@
 #import "TabBarController.h"
 #import "MenuController.h"
 #import "ContentController.h"
+#import "CrumbDetailController.h"
 
 @implementation JuicyCrumbAppDelegate
 
@@ -33,6 +34,10 @@
     [map from:@"tt://menu/(initWithMenu:)" toSharedViewController:[MenuController class]];
     
     [map from:@"tt://response/(initWithResponse:)" toViewController:[ContentController class]];
+    
+    [map from:@"tt://detail/(initWithMenu:)" toViewController:[CrumbDetailController class]];
+    
+    [map from:@"tt://order/food" toViewController:[TTPostController class]];
     
     if (![navigator restoreViewControllers]) {
         // This is the first launch, so we just start with the tab bar

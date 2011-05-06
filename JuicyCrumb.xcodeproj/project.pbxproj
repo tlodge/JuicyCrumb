@@ -47,6 +47,7 @@
 		A3BE913B137186A6004F6E8B /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = A3BE913A137186A6004F6E8B /* data.json */; };
 		A3BE91421371889C004F6E8B /* Crumb.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BE91411371889C004F6E8B /* Crumb.m */; };
 		A3E7FBD81372EE2B003FFE37 /* ContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FBD71372EE2B003FFE37 /* ContentController.m */; };
+		A3E7FE4A13743E09003FFE37 /* CrumbDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FE4913743E09003FFE37 /* CrumbDetailController.m */; };
 		A3F2B51D13705EA000F35AAC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F2B51C13705EA000F35AAC /* TabBarController.m */; };
 /* End PBXBuildFile section */
 
@@ -269,6 +270,8 @@
 		A3BE91411371889C004F6E8B /* Crumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crumb.m; sourceTree = "<group>"; };
 		A3E7FBD61372EE2B003FFE37 /* ContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentController.h; sourceTree = "<group>"; };
 		A3E7FBD71372EE2B003FFE37 /* ContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentController.m; sourceTree = "<group>"; };
+		A3E7FE4813743E09003FFE37 /* CrumbDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbDetailController.h; sourceTree = "<group>"; };
+		A3E7FE4913743E09003FFE37 /* CrumbDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbDetailController.m; sourceTree = "<group>"; };
 		A3F2B51B13705EA000F35AAC /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		A3F2B51C13705EA000F35AAC /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -422,6 +425,8 @@
 				A3BE910113718008004F6E8B /* MyDataSource.m */,
 				A3BE9103137182DE004F6E8B /* MyDataModel.h */,
 				A3BE9104137182DE004F6E8B /* MyDataModel.m */,
+				A3E7FE4813743E09003FFE37 /* CrumbDetailController.h */,
+				A3E7FE4913743E09003FFE37 /* CrumbDetailController.m */,
 				A31D51A513705C720094D3D3 /* iPhone */,
 				A31D51AC13705C730094D3D3 /* iPad */,
 				A31D519A13705C720094D3D3 /* Supporting Files */,
@@ -789,6 +794,7 @@
 				A3BE913913718679004F6E8B /* SBJsonWriter.m in Sources */,
 				A3BE91421371889C004F6E8B /* Crumb.m in Sources */,
 				A3E7FBD81372EE2B003FFE37 /* ContentController.m in Sources */,
+				A3E7FE4A13743E09003FFE37 /* CrumbDetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
