@@ -7,7 +7,7 @@
 //
 
 #import "CrumbDetailController.h"
-
+#import "ResponseDataSource.h"
 
 @implementation CrumbDetailController
 
@@ -58,7 +58,11 @@
 - (void)setPage:(NSString*)page {
     NSLog(@"setting the page...");
     _page = page;
-    self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
+    ResponseDataSource *mydataSource = [[ResponseDataSource alloc] initWithCrumb:2];
+    self.dataSource =  mydataSource;
+    TT_RELEASE_SAFELY(mydataSource);
+   
+    /*[TTSectionedDataSource dataSourceWithObjects:
                        @"Menu",
                        [TTTableTextItem itemWithText:@"Mac & Cheese" URL:@"tt://food/macncheese"],
                        [TTTableTextItem itemWithText:@"Ham Sandwich" URL:@"tt://food/hamsam"],
@@ -69,7 +73,7 @@
                        @"Other",
                        [TTTableTextItem itemWithText:@"Just Desserts" URL:@"tt://menu/4"],
                        [TTTableTextItem itemWithText:@"Complaints" URL:@"tt://about/complaints"],
-                       nil];
+                       nil];*/
 
 }
 

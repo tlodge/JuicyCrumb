@@ -18,7 +18,7 @@
 
 -(id) init{
     if (self = [super init]){
-        dataModel = [[MyDataModel alloc] init];
+        dataModel = [MyDataModel sharedModel];
     }
     return self;
 }
@@ -50,7 +50,6 @@
      
     for (Crumb* crumb in modelItems){
         TTTableTextItem *item = [TTTableTextItem itemWithText:crumb.content  URL:@"tt://detail/ooh"];
-        //TTTableCaptionItem *item = [TTTableCaptionItem itemWithText:crumb.content];
         [updatedItems addObject:item];
     }
     
@@ -60,7 +59,6 @@
 
 
 -(void) addCrumb:(NSTimer *)timer{
-    NSLog(@"adding a crumb");
     NSArray *keys = [NSArray arrayWithObjects: @"identity", @"type", @"author", @"content", @"clique", @"date", nil];
     NSArray *values = [NSArray arrayWithObjects: @"1",@"text",@"author1",@"somecontent",@"langbourne", @"2001-03-24 10:45:32", nil];
     NSDictionary* crumbdict = [[NSDictionary alloc] initWithObjects:values forKeys:keys];

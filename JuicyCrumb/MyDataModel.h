@@ -11,9 +11,16 @@
 
 @interface MyDataModel : TTModel {
     NSMutableArray* items;
+    NSMutableDictionary *responsesDictionary;
     BOOL done;
     BOOL loading;
 }
 
++ (MyDataModel*)sharedModel;
+
+-(NSMutableArray*) responsesForCrumb:(int) crumbid;
+
 @property(nonatomic, retain)  NSMutableArray*  items;
+@property(nonatomic, retain)  NSMutableDictionary*  responsesDictionary;
+
 @end

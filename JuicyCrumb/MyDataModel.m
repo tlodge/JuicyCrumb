@@ -9,24 +9,78 @@
 #import "MyDataModel.h"
 #import "JSON.h"
 #import "Crumb.h"
+#import "Response.h"
 
 @implementation MyDataModel
 @synthesize items;
-
+@synthesize responsesDictionary;
 
 #pragma mark --
 #pragma mark TTModel methods
 
-/*-(id) init{
-    if (self = [super init]){
-      //NSLog(@"initing data source");
-      //self.items = [[NSMutableArray alloc] init];
-      //done = YES;
-      //loading = NO;
-      //[self didFinishLoad];
+static MyDataModel *sharedModelInstance = nil;
+
++ (MyDataModel*)sharedModel {
+    @synchronized(self) {
+        if (sharedModelInstance == nil) {
+            [[self alloc] init]; // assignment not done here
+        }
     }
+    return sharedModelInstance;
+	// note: Xcode (3.2) static analyzer will report this singleton as a false positive
+	// '(Potential leak of an object allocated')
+}
+
++ (id)allocWithZone:(NSZone *)zone {
+    @synchronized(self) {
+        if (sharedModelInstance == nil) {
+            sharedModelInstance = [super allocWithZone:zone];
+            return sharedModelInstance;  // assignment and return on first allocation
+        }
+    }
+    return nil; //on subsequent allocation attempts return nil
+}
+
+- (id)copyWithZone:(NSZone *)zone {
     return self;
-}*/
+}
+
+- (id)retain {
+    return self;
+}
+
+- (unsigned)retainCount {
+    return UINT_MAX;  //denotes an object that cannot be released
+}
+
+- (void)release {
+    //do nothing
+}
+
+- (id)autorelease {
+    return self;
+}
+
+- init {
+	if (self = [super init]) {
+		
+	}
+	return self;
+}
+
+-(NSArray*) responsesForCrumb:(int) crumbid{
+    NSString *key = [NSString stringWithFormat:@"%d", crumbid];
+    NSArray *responsedicts = [responsesDictionary objectForKey:key];
+    
+    //sort this retain -- memory leak...
+    
+    NSMutableArray *responses = [[[NSMutableArray alloc] init] retain];
+    
+    for (NSDictionary* eachResponse in responsedicts){
+        [responses addObject:[[Response alloc] initWithDictionary:eachResponse]];
+    }
+    return responses;
+}
 
 -(void) load:(TTURLRequestCachePolicy)cachePolicy more:(BOOL)more{
     NSLog(@"loading data...");
@@ -49,6 +103,7 @@
             
             [self.items addObject:aCrumb];
         }
+         self.responsesDictionary = [data objectForKey:@"responses"];
     }
     
     done = YES;

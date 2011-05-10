@@ -48,6 +48,8 @@
 		A3BE91421371889C004F6E8B /* Crumb.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BE91411371889C004F6E8B /* Crumb.m */; };
 		A3E7FBD81372EE2B003FFE37 /* ContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FBD71372EE2B003FFE37 /* ContentController.m */; };
 		A3E7FE4A13743E09003FFE37 /* CrumbDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FE4913743E09003FFE37 /* CrumbDetailController.m */; };
+		A3E7FEBE13796A71003FFE37 /* ResponseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FEBD13796A6C003FFE37 /* ResponseDataSource.m */; };
+		A3E7FEC113797426003FFE37 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FEC013797426003FFE37 /* Response.m */; };
 		A3F2B51D13705EA000F35AAC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F2B51C13705EA000F35AAC /* TabBarController.m */; };
 /* End PBXBuildFile section */
 
@@ -272,6 +274,10 @@
 		A3E7FBD71372EE2B003FFE37 /* ContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentController.m; sourceTree = "<group>"; };
 		A3E7FE4813743E09003FFE37 /* CrumbDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbDetailController.h; sourceTree = "<group>"; };
 		A3E7FE4913743E09003FFE37 /* CrumbDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbDetailController.m; sourceTree = "<group>"; };
+		A3E7FEBC13796A69003FFE37 /* ResponseDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseDataSource.h; sourceTree = "<group>"; };
+		A3E7FEBD13796A6C003FFE37 /* ResponseDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseDataSource.m; sourceTree = "<group>"; };
+		A3E7FEBF13797426003FFE37 /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
+		A3E7FEC013797426003FFE37 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
 		A3F2B51B13705EA000F35AAC /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		A3F2B51C13705EA000F35AAC /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -423,6 +429,8 @@
 				A3E7FBD71372EE2B003FFE37 /* ContentController.m */,
 				A3BE910013718008004F6E8B /* MyDataSource.h */,
 				A3BE910113718008004F6E8B /* MyDataSource.m */,
+				A3E7FEBC13796A69003FFE37 /* ResponseDataSource.h */,
+				A3E7FEBD13796A6C003FFE37 /* ResponseDataSource.m */,
 				A3BE9103137182DE004F6E8B /* MyDataModel.h */,
 				A3BE9104137182DE004F6E8B /* MyDataModel.m */,
 				A3E7FE4813743E09003FFE37 /* CrumbDetailController.h */,
@@ -526,6 +534,8 @@
 			children = (
 				A3BE91401371889C004F6E8B /* Crumb.h */,
 				A3BE91411371889C004F6E8B /* Crumb.m */,
+				A3E7FEBF13797426003FFE37 /* Response.h */,
+				A3E7FEC013797426003FFE37 /* Response.m */,
 			);
 			name = DataModels;
 			sourceTree = "<group>";
@@ -795,6 +805,8 @@
 				A3BE91421371889C004F6E8B /* Crumb.m in Sources */,
 				A3E7FBD81372EE2B003FFE37 /* ContentController.m in Sources */,
 				A3E7FE4A13743E09003FFE37 /* CrumbDetailController.m in Sources */,
+				A3E7FEBE13796A71003FFE37 /* ResponseDataSource.m in Sources */,
+				A3E7FEC113797426003FFE37 /* Response.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
