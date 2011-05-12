@@ -18,7 +18,7 @@
 
 + (MyDataModel*)sharedModel;
 
--(NSMutableArray*) responsesForCrumb:(int) crumbid;
+-(NSMutableArray*) responsesForCrumb:(NSString *) crumbid;
 
 @property(nonatomic, retain)  NSMutableArray*  items;
 @property(nonatomic, retain)  NSMutableDictionary*  responsesDictionary;

@@ -11,11 +11,11 @@
 #import "MyDataModel.h"
 
 @implementation ResponseDataSource
-
--(id) initWithCrumb:(int) crid{
+@synthesize crumbid;
+-(id) initWithCrumb:(NSString*) crid{
     if (self = [super init]){
         dataModel = [MyDataModel sharedModel];
-        crumbid = crid;
+        self.crumbid = crid;
     }
     return self;
 }
@@ -28,17 +28,36 @@
     tableView = tv;
     [self update];
     
-    NSTimer* timer;
-   /* timer = [NSTimer scheduledTimerWithTimeInterval:2.0 
+   /* NSTimer* timer;
+    timer = [NSTimer scheduledTimerWithTimeInterval:5.0 
                                              target:self
-                                           selector:@selector(addCrumb:)
+                                           selector:@selector(addResponse:)
                                            userInfo:nil      
                                             repeats:YES
-             ];*/
+    ];*/
     
 }
 
 
+-(void) addResponse:(NSTimer*)timer{
+    
+    NSArray *keys = [NSArray arrayWithObjects: @"identity", @"responseto", @"content", @"author", @"date",nil];
+    NSArray *values = [NSArray arrayWithObjects: @"1", self.crumbid,@"some response",@"someone", @"2001-03-24 10:45:32", nil];
+    NSDictionary* responsedict = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
+    Response* aresponse = [[Response alloc] initWithDictionary:responsedict];
+    [responsedict release];
+    
+    //[dataModel.items insertObject:aresponse atIndex:0];
+    
+    //[self update];
+    
+    //NSArray *insertedIndexPaths = [NSArray arrayWithObjects: [NSIndexPath indexPathForRow:0 inSection:0],nil ];
+    
+    //[tableView beginUpdates];
+    //[tableView insertRowsAtIndexPaths:insertedIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    //[tableView endUpdates];
+
+}
 
 -(void) update{
     NSArray *modelItems = [dataModel responsesForCrumb:crumbid];
@@ -61,7 +80,7 @@
 }
 
 -(NSString *) titleForEmpty{
-    return @"No crumbs";
+    return @"No responses";
 }
 
 -(NSString *) titleForError:(NSError*)error{

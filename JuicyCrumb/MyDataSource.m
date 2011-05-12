@@ -31,14 +31,14 @@
     tableView = tv;
     [self update];
   
-    NSTimer* timer;
-    timer = [NSTimer scheduledTimerWithTimeInterval:2.0 
+   /* NSTimer* timer;
+    timer = [NSTimer scheduledTimerWithTimeInterval:8.0 
                                              target:self
                                            selector:@selector(addCrumb:)
                                            userInfo:nil      
                                             repeats:YES
              ];
-     
+     */
 }
 
 
@@ -49,7 +49,8 @@
     NSMutableArray *updatedItems = [NSMutableArray arrayWithCapacity:modelItems.count];
      
     for (Crumb* crumb in modelItems){
-        TTTableTextItem *item = [TTTableTextItem itemWithText:crumb.content  URL:@"tt://detail/ooh"];
+        NSString *tmpURL = [NSString stringWithFormat:@"tt://detail/%@",[crumb identity]];
+        TTTableTextItem *item = [TTTableTextItem itemWithText:crumb.content  URL:tmpURL];
         [updatedItems addObject:item];
     }
     

@@ -17,9 +17,9 @@
     NSDate* date;
 }
 
-@property(nonatomic,assign) NSString* identity;
-@property(nonatomic,assign) NSString* responseto;
-@property(nonatomic,assign) NSString* content;
-@property(nonatomic,assign) NSString* author;
-@property(nonatomic,assign) NSDate* date;
+@property(nonatomic,copy) NSString* identity;
+@property(nonatomic,copy) NSString* responseto;
+@property(nonatomic,copy) NSString* content;
+@property(nonatomic,copy) NSString* author;
+@property(nonatomic,copy) NSDate* date;
 @end

@@ -11,11 +11,11 @@
 
 @implementation CrumbDetailController
 
-@synthesize page = _page;
+@synthesize crumbId = _crumbId;
 @synthesize headerView;
 @synthesize footerView;
 
-- (id)initWithMenu:(NSString*)page {
+- (id)initWithMenu:(NSString*)crumbId {
     if (self = [super init]) {
         //tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
         CGRect aframe = self.tableView.frame;
@@ -50,15 +50,15 @@
         self.headerView = myView;
         [myView release];
         [self.view addSubview:headerView];
-        self.page = page;
+        self.crumbId= crumbId;
     }
     return self;
 }
 
-- (void)setPage:(NSString*)page {
-    NSLog(@"setting the page...");
-    _page = page;
-    ResponseDataSource *mydataSource = [[ResponseDataSource alloc] initWithCrumb:2];
+- (void)setCrumbId:(NSString*)crid {
+    NSLog(@"setting the crumbId...%@", crid);
+    _crumbId = crid;
+    ResponseDataSource *mydataSource = [[ResponseDataSource alloc] initWithCrumb:_crumbId];
     self.dataSource =  mydataSource;
     TT_RELEASE_SAFELY(mydataSource);
    

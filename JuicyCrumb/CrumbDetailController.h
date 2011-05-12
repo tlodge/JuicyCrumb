@@ -10,15 +10,15 @@
 
 
 @interface CrumbDetailController : TTTableViewController {
-    NSString* _page;
+    NSString* _crumbId;
     UIView *headerView;
     UIView *footerView;
 }
 
-@property(nonatomic) NSString* page;
+@property(nonatomic, assign) NSString* crumbId;
 @property(nonatomic, retain) UIView *headerView;
 @property(nonatomic, retain) UIView *footerView;
 
-- (id)initWithMenu:(NSString*)page;
+- (id)initWithMenu:(NSString*)crumbId;
 
 @end

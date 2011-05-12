@@ -13,9 +13,10 @@
 @interface ResponseDataSource : TTListDataSource {
     MyDataModel *dataModel;    
     UITableView *tableView;
-    int crumbid;
+    NSString *crumbid;
 }
 
--(id) initWithCrumb:(int) crumbid;
+-(id) initWithCrumb:(NSString*) crumbid;
+@property(nonatomic, retain) NSString* crumbid;
 
 @end
