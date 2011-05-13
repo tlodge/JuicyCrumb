@@ -37,13 +37,13 @@
     tableView = tv;
     [self update];
     
-    /*NSTimer* timer;
+    NSTimer* timer;
     timer = [NSTimer scheduledTimerWithTimeInterval:8.0 
                                              target:self
                                            selector:@selector(addCrumb:)
                                            userInfo:nil      
                                             repeats:YES
-             ];*/
+             ];
     
 }
 
@@ -67,6 +67,7 @@
 
 -(void) addCrumb:(NSTimer *)timer{
     
+    NSLog(@"would add a response...");
     //SIMULATE GETTING SOMETHING FROM THE NETWORK MANAGER....
     
     NSArray *keys = [NSArray arrayWithObjects: @"identity", @"type", @"author", @"content", @"clique", @"date", nil];
@@ -108,6 +109,7 @@
 }
 
 -(void) dealloc{
+    NSLog(@"deallocing data model");
     [dataModel release];
     [super dealloc];
 }

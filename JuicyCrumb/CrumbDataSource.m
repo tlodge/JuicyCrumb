@@ -37,13 +37,13 @@
     tableView = tv;
     [self update];
     
-     /*NSTimer* timer;
+     NSTimer* timer;
      timer = [NSTimer scheduledTimerWithTimeInterval:8.0 
      target:self
      selector:@selector(addCrumb:)
      userInfo:nil      
      repeats:YES
-     ];*/
+     ];
      
 }
 
@@ -68,7 +68,7 @@
 -(void) addCrumb:(NSTimer *)timer{
     
     //SIMULATE GETTING SOMETHING FROM THE NETWORK MANAGER....
-    
+    NSLog(@"would add a crumb..");
     NSArray *keys = [NSArray arrayWithObjects: @"identity", @"type", @"author", @"content", @"clique", @"date", nil];
     NSArray *values = [NSArray arrayWithObjects: @"1",@"text",@"author1",@"somecontent",@"langbourne", @"2001-03-24 10:45:32", nil];
     NSDictionary* crumbdict = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
@@ -84,6 +84,7 @@
    
     [self update];
     NSArray *insertedIndexPaths = [NSArray arrayWithObjects: [NSIndexPath indexPathForRow:0 inSection:0],nil ];
+    
     
     [tableView beginUpdates];
     [tableView insertRowsAtIndexPaths:insertedIndexPaths withRowAnimation:UITableViewRowAnimationFade];
