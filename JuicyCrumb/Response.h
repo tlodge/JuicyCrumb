@@ -22,4 +22,7 @@
 @property(nonatomic,copy) NSString* content;
 @property(nonatomic,copy) NSString* author;
 @property(nonatomic,copy) NSDate* date;
+
+- (id)initWithDictionary:(NSDictionary *)aDictionary;
+
 @end

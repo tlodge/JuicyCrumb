@@ -33,8 +33,6 @@
 		A31D51C613705C730094D3D3 /* JuicyCrumbTests.h in Resources */ = {isa = PBXBuildFile; fileRef = A31D51C513705C730094D3D3 /* JuicyCrumbTests.h */; };
 		A31D51C813705C730094D3D3 /* JuicyCrumbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D51C713705C730094D3D3 /* JuicyCrumbTests.m */; };
 		A37C90D413706240005CB995 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A37C90D313706240005CB995 /* MenuController.m */; };
-		A3BE910213718008004F6E8B /* MyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BE910113718008004F6E8B /* MyDataSource.m */; };
-		A3BE9105137182DE004F6E8B /* MyDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BE9104137182DE004F6E8B /* MyDataModel.m */; };
 		A3BE913113718679004F6E8B /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BE912013718679004F6E8B /* NSObject+JSON.m */; };
 		A3BE913213718679004F6E8B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BE912213718679004F6E8B /* SBJsonParser.m */; };
 		A3BE913313718679004F6E8B /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BE912413718679004F6E8B /* SBJsonStreamParser.m */; };
@@ -46,6 +44,9 @@
 		A3BE913913718679004F6E8B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BE913013718679004F6E8B /* SBJsonWriter.m */; };
 		A3BE913B137186A6004F6E8B /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = A3BE913A137186A6004F6E8B /* data.json */; };
 		A3BE91421371889C004F6E8B /* Crumb.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BE91411371889C004F6E8B /* Crumb.m */; };
+		A3D56B07137D789C0081A0AE /* CrumbDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B06137D789B0081A0AE /* CrumbDataSource.m */; };
+		A3D56B0A137D78E90081A0AE /* CrumbDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B09137D78E90081A0AE /* CrumbDataModel.m */; };
+		A3D56B0D137D79040081A0AE /* ResponseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B0C137D79010081A0AE /* ResponseDataModel.m */; };
 		A3E7FBD81372EE2B003FFE37 /* ContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FBD71372EE2B003FFE37 /* ContentController.m */; };
 		A3E7FE4A13743E09003FFE37 /* CrumbDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FE4913743E09003FFE37 /* CrumbDetailController.m */; };
 		A3E7FEBE13796A71003FFE37 /* ResponseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FEBD13796A6C003FFE37 /* ResponseDataSource.m */; };
@@ -244,10 +245,6 @@
 		A31D51C713705C730094D3D3 /* JuicyCrumbTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JuicyCrumbTests.m; sourceTree = "<group>"; };
 		A37C90D21370623F005CB995 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		A37C90D313706240005CB995 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
-		A3BE910013718008004F6E8B /* MyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDataSource.h; sourceTree = "<group>"; };
-		A3BE910113718008004F6E8B /* MyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDataSource.m; sourceTree = "<group>"; };
-		A3BE9103137182DE004F6E8B /* MyDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDataModel.h; sourceTree = "<group>"; };
-		A3BE9104137182DE004F6E8B /* MyDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDataModel.m; sourceTree = "<group>"; };
 		A3BE911E13718679004F6E8B /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		A3BE911F13718679004F6E8B /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
 		A3BE912013718679004F6E8B /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
@@ -270,6 +267,12 @@
 		A3BE913A137186A6004F6E8B /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.json; sourceTree = "<group>"; };
 		A3BE91401371889C004F6E8B /* Crumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crumb.h; sourceTree = "<group>"; };
 		A3BE91411371889C004F6E8B /* Crumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crumb.m; sourceTree = "<group>"; };
+		A3D56B05137D789B0081A0AE /* CrumbDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbDataSource.h; sourceTree = "<group>"; };
+		A3D56B06137D789B0081A0AE /* CrumbDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbDataSource.m; sourceTree = "<group>"; };
+		A3D56B08137D78E80081A0AE /* CrumbDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbDataModel.h; sourceTree = "<group>"; };
+		A3D56B09137D78E90081A0AE /* CrumbDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbDataModel.m; sourceTree = "<group>"; };
+		A3D56B0B137D79000081A0AE /* ResponseDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseDataModel.h; sourceTree = "<group>"; };
+		A3D56B0C137D79010081A0AE /* ResponseDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseDataModel.m; sourceTree = "<group>"; };
 		A3E7FBD61372EE2B003FFE37 /* ContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentController.h; sourceTree = "<group>"; };
 		A3E7FBD71372EE2B003FFE37 /* ContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentController.m; sourceTree = "<group>"; };
 		A3E7FE4813743E09003FFE37 /* CrumbDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbDetailController.h; sourceTree = "<group>"; };
@@ -427,12 +430,14 @@
 				A37C90D313706240005CB995 /* MenuController.m */,
 				A3E7FBD61372EE2B003FFE37 /* ContentController.h */,
 				A3E7FBD71372EE2B003FFE37 /* ContentController.m */,
-				A3BE910013718008004F6E8B /* MyDataSource.h */,
-				A3BE910113718008004F6E8B /* MyDataSource.m */,
+				A3D56B05137D789B0081A0AE /* CrumbDataSource.h */,
+				A3D56B06137D789B0081A0AE /* CrumbDataSource.m */,
+				A3D56B08137D78E80081A0AE /* CrumbDataModel.h */,
+				A3D56B09137D78E90081A0AE /* CrumbDataModel.m */,
 				A3E7FEBC13796A69003FFE37 /* ResponseDataSource.h */,
 				A3E7FEBD13796A6C003FFE37 /* ResponseDataSource.m */,
-				A3BE9103137182DE004F6E8B /* MyDataModel.h */,
-				A3BE9104137182DE004F6E8B /* MyDataModel.m */,
+				A3D56B0B137D79000081A0AE /* ResponseDataModel.h */,
+				A3D56B0C137D79010081A0AE /* ResponseDataModel.m */,
 				A3E7FE4813743E09003FFE37 /* CrumbDetailController.h */,
 				A3E7FE4913743E09003FFE37 /* CrumbDetailController.m */,
 				A31D51A513705C720094D3D3 /* iPhone */,
@@ -791,8 +796,6 @@
 				A31D51AF13705C730094D3D3 /* JuicyCrumbAppDelegate_iPad.m in Sources */,
 				A3F2B51D13705EA000F35AAC /* TabBarController.m in Sources */,
 				A37C90D413706240005CB995 /* MenuController.m in Sources */,
-				A3BE910213718008004F6E8B /* MyDataSource.m in Sources */,
-				A3BE9105137182DE004F6E8B /* MyDataModel.m in Sources */,
 				A3BE913113718679004F6E8B /* NSObject+JSON.m in Sources */,
 				A3BE913213718679004F6E8B /* SBJsonParser.m in Sources */,
 				A3BE913313718679004F6E8B /* SBJsonStreamParser.m in Sources */,
@@ -807,6 +810,9 @@
 				A3E7FE4A13743E09003FFE37 /* CrumbDetailController.m in Sources */,
 				A3E7FEBE13796A71003FFE37 /* ResponseDataSource.m in Sources */,
 				A3E7FEC113797426003FFE37 /* Response.m in Sources */,
+				A3D56B07137D789C0081A0AE /* CrumbDataSource.m in Sources */,
+				A3D56B0A137D78E90081A0AE /* CrumbDataModel.m in Sources */,
+				A3D56B0D137D79040081A0AE /* ResponseDataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

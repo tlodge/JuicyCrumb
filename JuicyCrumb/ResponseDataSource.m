@@ -1,21 +1,30 @@
 //
-//  ResponseDataSource.m
+//  CrumbDataSource.m
 //  JuicyCrumb
 //
-//  Created by Tom Lodge on 10/05/2011.
+//  Created by Tom Lodge on 13/05/2011.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+
+/*
+ * The crumb data source is responsible for obtaining data and updating its data model.
+ */
+
 #import "ResponseDataSource.h"
-#import "Response.h"
-#import "MyDataModel.h"
+#import "ResponseDataModel.h"
+#import "Crumb.h"
+#import "JSON.h"
+
+@interface ResponseDataSource()
+-(void) update;
+@end
 
 @implementation ResponseDataSource
-@synthesize crumbid;
--(id) initWithCrumb:(NSString*) crid{
+
+-(id) init{
     if (self = [super init]){
-        dataModel = [MyDataModel sharedModel];
-        self.crumbid = crid;
+        dataModel = [[ResponseDataModel alloc] init];
     }
     return self;
 }
@@ -28,45 +37,26 @@
     tableView = tv;
     [self update];
     
-   /* NSTimer* timer;
-    timer = [NSTimer scheduledTimerWithTimeInterval:5.0 
+    /*NSTimer* timer;
+    timer = [NSTimer scheduledTimerWithTimeInterval:8.0 
                                              target:self
-                                           selector:@selector(addResponse:)
+                                           selector:@selector(addCrumb:)
                                            userInfo:nil      
                                             repeats:YES
-    ];*/
+             ];*/
     
 }
 
 
--(void) addResponse:(NSTimer*)timer{
-    
-    NSArray *keys = [NSArray arrayWithObjects: @"identity", @"responseto", @"content", @"author", @"date",nil];
-    NSArray *values = [NSArray arrayWithObjects: @"1", self.crumbid,@"some response",@"someone", @"2001-03-24 10:45:32", nil];
-    NSDictionary* responsedict = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
-    Response* aresponse = [[Response alloc] initWithDictionary:responsedict];
-    [responsedict release];
-    
-    //[dataModel.items insertObject:aresponse atIndex:0];
-    
-    //[self update];
-    
-    //NSArray *insertedIndexPaths = [NSArray arrayWithObjects: [NSIndexPath indexPathForRow:0 inSection:0],nil ];
-    
-    //[tableView beginUpdates];
-    //[tableView insertRowsAtIndexPaths:insertedIndexPaths withRowAnimation:UITableViewRowAnimationFade];
-    //[tableView endUpdates];
-
-}
 
 -(void) update{
-    NSArray *modelItems = [dataModel responsesForCrumb:crumbid];
+    NSMutableArray *modelItems = [dataModel items];
     
     NSMutableArray *updatedItems = [NSMutableArray arrayWithCapacity:modelItems.count];
     
-    for (Response* response in modelItems){
-        
-        TTTableTextItem *item = [TTTableTextItem itemWithText:response.content  URL:[NSString stringWithFormat:@"tt://response/%@", response.identity]];
+    for (Crumb* crumb in modelItems){
+        NSString *tmpURL = [NSString stringWithFormat:@"tt://detail/%@",[crumb identity]];
+        TTTableTextItem *item = [TTTableTextItem itemWithText:crumb.content  URL:tmpURL];
         [updatedItems addObject:item];
     }
     
@@ -75,12 +65,38 @@
 }
 
 
+-(void) addCrumb:(NSTimer *)timer{
+    
+    //SIMULATE GETTING SOMETHING FROM THE NETWORK MANAGER....
+    
+    NSArray *keys = [NSArray arrayWithObjects: @"identity", @"type", @"author", @"content", @"clique", @"date", nil];
+    NSArray *values = [NSArray arrayWithObjects: @"1",@"text",@"author1",@"somecontent",@"langbourne", @"2001-03-24 10:45:32", nil];
+    NSDictionary* crumbdict = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
+    Crumb* acrumb = [[Crumb alloc] initWithDictionary:crumbdict];
+    [crumbdict release];
+    
+    if ([dataModel.items count] <= 0){
+        [dataModel.items addObject:acrumb];
+    }else{
+        [dataModel.items insertObject:acrumb atIndex:0];
+    }
+    
+    
+    [self update];
+    NSArray *insertedIndexPaths = [NSArray arrayWithObjects: [NSIndexPath indexPathForRow:0 inSection:0],nil ];
+    
+    [tableView beginUpdates];
+    [tableView insertRowsAtIndexPaths:insertedIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    [tableView endUpdates];
+}
+
+
 -(NSString *) titleForLoading:(BOOL)reloading{
     return @"Loading";
 }
 
 -(NSString *) titleForEmpty{
-    return @"No responses";
+    return @"No crumbs";
 }
 
 -(NSString *) titleForError:(NSError*)error{
@@ -92,7 +108,7 @@
 }
 
 -(void) dealloc{
+    [dataModel release];
     [super dealloc];
 }
-
 @end

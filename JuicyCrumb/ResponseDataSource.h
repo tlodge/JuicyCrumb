@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+@class ResponseDataModel;
 
-@class MyDataModel;
 
 @interface ResponseDataSource : TTListDataSource {
-    MyDataModel *dataModel;    
+    ResponseDataModel *dataModel;    
     UITableView *tableView;
     NSString *crumbid;
 }
 
 -(id) initWithCrumb:(NSString*) crumbid;
 @property(nonatomic, retain) NSString* crumbid;
-
+ 
 @end

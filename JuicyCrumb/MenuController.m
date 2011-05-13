@@ -7,7 +7,7 @@
 //
 
 #import "MenuController.h"
-#import "MyDataSource.h"
+#import "CrumbDataSource.h"
 
 @implementation MenuController
 
@@ -71,6 +71,13 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // TTViewController
 
+
+- (void)tableView:(UITableView *)tableView didInsertRowAtIndexPath:(NSIndexPath *)newIndexPath {
+    NSLog(@"stuff added....");
+
+}
+
+
 - (void)setPage:(MenuPage)page {
     _page = page;
     
@@ -86,11 +93,9 @@
  
     
     if (_page == MenuPageBreakfast) {
-        MyDataSource *mydataSource = [[MyDataSource alloc] init];
-        self.dataSource =  mydataSource;
-        TT_RELEASE_SAFELY(mydataSource);
-        
-        
+        CrumbDataSource *crumbdataSource = [[CrumbDataSource alloc] init];
+        self.dataSource =  crumbdataSource;
+        TT_RELEASE_SAFELY(crumbdataSource);
     } else if (_page == MenuPageLunch) {
         self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
                            @"Menu",

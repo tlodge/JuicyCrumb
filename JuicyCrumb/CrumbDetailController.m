@@ -17,6 +17,7 @@
 
 - (id)initWithMenu:(NSString*)crumbId {
     if (self = [super init]) {
+        
         //tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
         CGRect aframe = self.tableView.frame;
         aframe.origin.y += 150;
@@ -55,26 +56,14 @@
     return self;
 }
 
+
+
 - (void)setCrumbId:(NSString*)crid {
-    NSLog(@"setting the crumbId...%@", crid);
+    NSLog(@"ok createing my datasource...");
     _crumbId = crid;
-    ResponseDataSource *mydataSource = [[ResponseDataSource alloc] initWithCrumb:_crumbId];
+    ResponseDataSource *mydataSource = [[ResponseDataSource alloc] init ];//initWithCrumb:_crumbId];
     self.dataSource =  mydataSource;
     TT_RELEASE_SAFELY(mydataSource);
-   
-    /*[TTSectionedDataSource dataSourceWithObjects:
-                       @"Menu",
-                       [TTTableTextItem itemWithText:@"Mac & Cheese" URL:@"tt://food/macncheese"],
-                       [TTTableTextItem itemWithText:@"Ham Sandwich" URL:@"tt://food/hamsam"],
-                       [TTTableTextItem itemWithText:@"Salad" URL:@"tt://food/salad"],
-                       @"Drinks",
-                       [TTTableTextItem itemWithText:@"Coke" URL:@"tt://food/coke"],
-                       [TTTableTextItem itemWithText:@"Sprite" URL:@"tt://food/sprite"],
-                       @"Other",
-                       [TTTableTextItem itemWithText:@"Just Desserts" URL:@"tt://menu/4"],
-                       [TTTableTextItem itemWithText:@"Complaints" URL:@"tt://about/complaints"],
-                       nil];*/
-
 }
 
 @end
