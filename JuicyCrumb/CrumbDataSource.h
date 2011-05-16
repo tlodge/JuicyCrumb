@@ -12,6 +12,9 @@
 @interface CrumbDataSource : TTListDataSource {
     CrumbDataModel *dataModel;
     UITableView *tableView;
+     NSDate *latestcrumb;
 }
+
+@property(nonatomic, retain) NSDate *latestcrumb;
 
 @end

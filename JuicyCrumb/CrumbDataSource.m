@@ -15,12 +15,16 @@
 #import "CrumbDataModel.h"
 #import "Crumb.h"
 #import "JSON.h"
+#import "NetworkManager.h"
 
 @interface CrumbDataSource()
 -(void) update;
 @end
 
 @implementation CrumbDataSource
+
+
+@synthesize latestcrumb;
 
 -(id) init{
     if (self = [super init]){
@@ -34,17 +38,10 @@
 }
 
 -(void) tableViewDidLoadModel:(UITableView *)tv{
+    NSLog(@"starting new crumb thread!!!");
     tableView = tv;
-    [self update];
-    
-     NSTimer* timer;
-     timer = [NSTimer scheduledTimerWithTimeInterval:8.0 
-     target:self
-     selector:@selector(addCrumb:)
-     userInfo:nil      
-     repeats:YES
-     ];
-     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newCrumbReceived:) name:@"newCrumbReceived" object:nil];
+	[self update];
 }
 
 
@@ -58,6 +55,9 @@
         NSString *tmpURL = [NSString stringWithFormat:@"tt://detail/%@",[crumb identity]];
         TTTableTextItem *item = [TTTableTextItem itemWithText:crumb.content  URL:tmpURL];
         [updatedItems addObject:item];
+        if (latestcrumb == nil || [latestcrumb earlierDate:[crumb date]]){
+            self.latestcrumb = [crumb date];
+        }
     }
     
     
@@ -65,30 +65,58 @@
 }
 
 
--(void) addCrumb:(NSTimer *)timer{
+-(void) newCrumbsReceived:(NSNotification *) notification{
+    //assume ordered!
     
-    //SIMULATE GETTING SOMETHING FROM THE NETWORK MANAGER....
-    NSLog(@"would add a crumb..");
-    NSArray *keys = [NSArray arrayWithObjects: @"identity", @"type", @"author", @"content", @"clique", @"date", nil];
-    NSArray *values = [NSArray arrayWithObjects: @"1",@"text",@"author1",@"somecontent",@"langbourne", @"2001-03-24 10:45:32", nil];
-    NSDictionary* crumbdict = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
-    Crumb* acrumb = [[Crumb alloc] initWithDictionary:crumbdict];
-    [crumbdict release];
+    NSMutableArray *latestcrumbs = [[NetworkManager sharedManager] allCrumbsSince:self.latestcrumb];
     
-    if ([dataModel.items count] <= 0){
-        [dataModel.items addObject:acrumb];
-    }else{
-        [dataModel.items insertObject:acrumb atIndex:0];
+    NSMutableArray *insertedIndexPaths;
+    
+    int index = [latestcrumb count] - 1;
+    
+    for (NSDictionary *dict in latestcrumbs){
+        Crumb* acrumb = [[Crumb alloc] initWithDictionary:dict];
+        if ([dataModel.items count] <= 0){
+               [dataModel.items addObject:acrumb];
+        }else{
+               [dataModel.items insertObject:acrumb atIndex:index];
+        }
+        [insertedIndexPaths addObject:[NSIndexPath indexPathForRow:index inSection:0]];
+        index -= 1;
     }
     
-   
     [self update];
-    NSArray *insertedIndexPaths = [NSArray arrayWithObjects: [NSIndexPath indexPathForRow:0 inSection:0],nil ];
-    
     
     [tableView beginUpdates];
     [tableView insertRowsAtIndexPaths:insertedIndexPaths withRowAnimation:UITableViewRowAnimationFade];
     [tableView endUpdates];
+    
+}
+
+-(void) addCrumb:(NSTimer *)timer{
+    
+    //SIMULATE GETTING SOMETHING FROM THE NETWORK MANAGER....
+   // NSLog(@"would add a crumb..");
+    //NSArray *keys = [NSArray arrayWithObjects: @"identity", @"type", @"author", @"content", @"clique", @"date", nil];
+    //NSArray *values = [NSArray arrayWithObjects: @"1",@"text",@"author1",@"somecontent",@"langbourne", @"2001-03-24 10:45:32", nil];
+    //NSDictionary* crumbdict = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
+    //Crumb* acrumb = [[Crumb alloc] initWithDictionary:crumbdict];
+    //[crumbdict release];
+    
+    //if ([dataModel.items count] <= 0){
+     //   [dataModel.items addObject:acrumb];
+    //}else{
+     //   [dataModel.items insertObject:acrumb atIndex:0];
+    //}
+    
+   
+    //[self update];
+    //NSArray *insertedIndexPaths = [NSArray arrayWithObjects: [NSIndexPath indexPathForRow:0 inSection:0],nil ];
+    
+    
+   // [tableView beginUpdates];
+   // [tableView insertRowsAtIndexPaths:insertedIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+   // [tableView endUpdates];
 }
 
 

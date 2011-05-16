@@ -56,10 +56,12 @@
     return self;
 }
 
-
+- (void)model:(id<TTModel>)model didInsertObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
+    NSLog(@"great...in detail and model did insert object...");
+}
 
 - (void)setCrumbId:(NSString*)crid {
-    NSLog(@"ok createing my datasource...");
+    NSLog(@"ok createing my NEW........!!!!  datasource...");
     _crumbId = crid;
     ResponseDataSource *mydataSource = [[ResponseDataSource alloc] init ];//initWithCrumb:_crumbId];
     self.dataSource =  mydataSource;

@@ -17,7 +17,7 @@
 -(id) init {
 	if (self = [super init]) {
 		 self.items = [[NSMutableArray alloc] init];
-	}
+    }
 	return self;
 }
 
@@ -59,6 +59,8 @@
        
     }
     */
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(actionTypeChange:) name:@"actionTypeChange" object:nil];
+	
     done = YES;
     loading = NO;
     [self didFinishLoad];
