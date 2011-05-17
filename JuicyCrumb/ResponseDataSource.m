@@ -28,7 +28,7 @@
 -(id) init{
     if (self = [super init]){
         self.dataModel = [[ResponseDataModel alloc] init];
-        NSLog(@"starting a new timer thread!!!!");
+      
     }
     return self;
 }
@@ -44,7 +44,7 @@
 }
 
 -(void) newDataReceived:(NSNotification *) notification{
-    NSMutableArray *
+   // NSMutableArray *
 }
 
 -(void) update{

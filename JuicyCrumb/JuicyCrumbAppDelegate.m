@@ -24,10 +24,9 @@
     navigator.persistenceMode = TTNavigatorPersistenceModeAll;
     navigator.window = [[[UIWindow alloc] initWithFrame:TTScreenBounds()] autorelease];
     
+    
     TTURLMap* map = navigator.URLMap;
-    /*
-     * Set up the tab bar controller...
-     */
+    
     [map from:@"tt://tabBar" toSharedViewController:[TabBarController class]];
     // Menu controllers are also shared - we only create one to show in each tab, so opening
     // these URLs will switch to the tab containing the menu
@@ -44,7 +43,8 @@
         [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://tabBar"]];
     }
     // Override point for customization after application launch.
-    [self.window makeKeyAndVisible];
+    
+     [self.window makeKeyAndVisible];
     return YES;
 }
 

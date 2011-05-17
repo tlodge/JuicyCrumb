@@ -10,19 +10,20 @@
 #import "JSON.h"
 
 @interface NetworkManager()
--(void) refreshData:(NSTimer *)timer;
--(void) getLatestData;
+//-(void) refreshData:(NSTimer *)timer;
+//-(void) getLatestData;
 @end
 
 
 
 @implementation NetworkManager
 
-@synthesize crumbs;
+@synthesize scrumbs;
 @synthesize responses;
+@synthesize timer;
+@synthesize df;
 
 static NetworkManager *sharedManagerInstance = nil;
-static NSDateFormatter *df;
 
 + (NetworkManager*)sharedManager {
     @synchronized(self) {
@@ -67,26 +68,16 @@ static NSDateFormatter *df;
 
 - init {
 	if (self = [super init]) {
-        
-        df = [[NSDateFormatter alloc] init];
-        [df setDateFormat:@"dd-MM-yy HH:mm:ss"];
-       
-        
-        NSTimer* timer;
-        
-        [self getLatestData];
-        
-        timer = [NSTimer scheduledTimerWithTimeInterval:2.0 
-                                                 target:self
-                                               selector:@selector(refreshData:)
-                                               userInfo:nil      
-                                                repeats:YES
-                 ];
+        NSLog(@"initing the network manager...");
+        self.df = [[NSDateFormatter alloc] init];
+        [self.df setDateFormat:@"dd-MM-yy HH:mm:ss"];
 	}
 	return self;
 }
 
 -(void) getLatestData  {
+    
+    
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
     NSString *content = [[NSString alloc] initWithContentsOfFile:filePath];
     SBJsonParser *jsonParser = [SBJsonParser new];
@@ -96,27 +87,53 @@ static NSDateFormatter *df;
         return;
     }
     else{
+        self.scrumbs = [[NSMutableArray alloc] init];
         
-        NSMutableArray *tmpcrumbs = [data objectForKey:@"crumbs"];
-        self.crumbs = tmpcrumbs;
-        [tmpcrumbs release];
+        NSMutableArray *tmpcrumbs = (NSMutableArray*) [data objectForKey:@"crumbs"];
+        for (NSDictionary *dict in tmpcrumbs){
+            NSLog (@"got a crumb %@", [dict objectForKey:@"content"]);
+            [self.scrumbs addObject:dict];
+        }
         
-        NSMutableDictionary* tmpresponses = [data objectForKey:@"responses"];
-        self.responses = tmpresponses;
-        [tmpresponses release];
+        NSLog(@"the crumbs size is %d", [scrumbs count]);
+       self.scrumbs = tmpcrumbs;
+        //[tmpcrumbs release];
+        
+        //NSMutableDictionary* tmpresponses = (NSMutableDictionary*) [data objectForKey:@"responses"];
+        //self.responses = tmpresponses;
+        //[tmpresponses release];
     }
+   
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 
+                                                  target:self
+                                                selector:@selector(refreshData:)
+                                                userInfo:nil      
+                                                 repeats:YES
+                  ];
 
+  
 }
 
--(void) refreshData: (NSTimer *)timer{
+-(void) refreshData: (NSTimer*) timer{
+    NSLog(@"refreshing data!!!");
     
     NSArray *keys = [NSArray arrayWithObjects: @"identity", @"type", @"author", @"content", @"clique", @"date", nil];
     NSArray *values = [NSArray arrayWithObjects: @"1",@"text",@"author1",@"somecontent",@"langbourne", @"2001-03-24 10:45:32", nil];
+    
+    NSLog(@"the crumbs size is %d", [self.scrumbs count]);
+    
     NSDictionary* crumbdict = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
-    [self.crumbs addObject:crumbdict];
+    
+    NSLog(@"adding a crumb to crumb array size %d", [self.scrumbs count]);
+    [scrumbs addObject:crumbdict];
     [crumbdict release];
+     
+     
+   // NSLog(@"posting notification!");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newCrumbsReceived" object:nil userInfo:crumbdict];
 
+    /*
     NSString* responseto = [NSString stringWithFormat:@"1"];
     keys = [NSArray arrayWithObjects: @"identity", @"responseto", @"content", @"author", @"date",nil];
     values = [NSArray arrayWithObjects: @"1", responseto ,@"some response",@"someone", @"2001-03-24 10:45:32", nil];
@@ -139,17 +156,19 @@ static NSDateFormatter *df;
     
      [[NSNotificationCenter defaultCenter] postNotificationName:@"newResponseReceived" object:nil userInfo:nil];
     //send response update notification!
-
+     */
 }
 
 //just do basic stuff for now
 
 -(NSMutableArray *) allCrumbsSince:(NSDate *) adate{
+    
+    
     if (adate == nil){
-        return crumbs;
+        return self.scrumbs;
     }else{
         NSMutableArray *toreturn = [[NSMutableArray alloc] init];
-        for (NSDictionary *acrumb in crumbs){
+        for (NSDictionary *acrumb in scrumbs){
             NSDate *crumbdate = [df dateFromString:[acrumb valueForKey:@"date"]];
             if ([adate earlierDate:crumbdate])
                 [toreturn addObject:acrumb];

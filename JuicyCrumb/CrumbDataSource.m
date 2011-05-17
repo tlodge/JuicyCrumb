@@ -38,49 +38,61 @@
 }
 
 -(void) tableViewDidLoadModel:(UITableView *)tv{
-    NSLog(@"starting new crumb thread!!!");
+    NSLog(@"registering interest in new crumbs!!!");
+    [[NetworkManager sharedManager] getLatestData];
+   // [[NetworkManager sharedManager] refreshData];
+     
+     NSLog(@"successfully refreshed data!");
     tableView = tv;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newCrumbReceived:) name:@"newCrumbReceived" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newCrumbsReceived:) name:@"newCrumbsReceived" object:nil];
 	[self update];
+     NSLog(@"successfully updated data!");
 }
 
 
 
+
+/*
+ * Get everything from the data model and add it to self.items
+ */
 -(void) update{
+    NSLog(@"updating...");
     NSMutableArray *modelItems = [dataModel items];
-    
+     NSLog(@"got model items!...");
     NSMutableArray *updatedItems = [NSMutableArray arrayWithCapacity:modelItems.count];
-    
+     NSLog(@"got sise is %d", [modelItems count]);
     for (Crumb* crumb in modelItems){
         NSString *tmpURL = [NSString stringWithFormat:@"tt://detail/%@",[crumb identity]];
         TTTableTextItem *item = [TTTableTextItem itemWithText:crumb.content  URL:tmpURL];
         [updatedItems addObject:item];
-        if (latestcrumb == nil || [latestcrumb earlierDate:[crumb date]]){
-            self.latestcrumb = [crumb date];
+        if (latestcrumb != nil){
+            if ([latestcrumb earlierDate:[crumb date]])
+                self.latestcrumb = [crumb date];
         }
     }
     
-    
+    NSLog(@"finished updating my current items");
     self.items = updatedItems;
 }
 
 
 -(void) newCrumbsReceived:(NSNotification *) notification{
     //assume ordered!
+    NSLog(@"ahahaha, new crumbs received!!");
     
-    NSMutableArray *latestcrumbs = [[NetworkManager sharedManager] allCrumbsSince:self.latestcrumb];
+    NSMutableArray *latestcrumbs =  [[NetworkManager sharedManager] allCrumbsSince:self.latestcrumb];
     
-    NSMutableArray *insertedIndexPaths;
+    NSMutableArray *insertedIndexPaths = [[NSMutableArray alloc] init];
     
-    int index = [latestcrumb count] - 1;
+    int index = [latestcrumbs count] - 1;
     
     for (NSDictionary *dict in latestcrumbs){
         Crumb* acrumb = [[Crumb alloc] initWithDictionary:dict];
-        if ([dataModel.items count] <= 0){
+       // if ([dataModel.items count] <= 0){
                [dataModel.items addObject:acrumb];
-        }else{
-               [dataModel.items insertObject:acrumb atIndex:index];
-        }
+        //}else{
+          //     [dataModel.items insertObject:acrumb atIndex:index];
+       // }
         [insertedIndexPaths addObject:[NSIndexPath indexPathForRow:index inSection:0]];
         index -= 1;
     }
@@ -137,7 +149,7 @@
 }
 
 -(void) dealloc{
-    [dataModel release];
+   // [dataModel release];
     [super dealloc];
 }
 @end

@@ -59,7 +59,7 @@
        
     }
     */
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(actionTypeChange:) name:@"actionTypeChange" object:nil];
+   
 	
     done = YES;
     loading = NO;
