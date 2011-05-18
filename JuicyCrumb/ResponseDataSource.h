@@ -13,13 +13,15 @@
 @interface ResponseDataSource : TTListDataSource {
     ResponseDataModel *dataModel;    
     UITableView *tableView;
-   
+    NSDate* latestresponse;
     //NSString *crumbid;
 }
 
 -(id) initWithCrumb:(NSString*) crumbid;
 //@property(nonatomic,retain) UITableView *tableView;
 @property(nonatomic,retain) ResponseDataModel *dataModel;
+@property(nonatomic,retain) NSDate *latestresponse;
+
 //@property(nonatomic, retain) NSString* crumbid;
  
 @end

@@ -13,7 +13,8 @@
 
 #import "ResponseDataSource.h"
 #import "ResponseDataModel.h"
-#import "Crumb.h"
+#import "Response.h"
+#import "NetworkManager.h"
 #import "JSON.h"
 
 @interface ResponseDataSource()
@@ -24,6 +25,7 @@
 
 //@synthesize tableView;
 @synthesize dataModel;
+@synthesize latestresponse;
 
 -(id) init{
     if (self = [super init]){
@@ -39,24 +41,48 @@
 
 -(void) tableViewDidLoadModel:(UITableView *)tv{
     tableView = tv;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newResponsesReceived:) name:@"newResponsesReceived" object:nil];
+	
     [self update];
            
 }
 
--(void) newDataReceived:(NSNotification *) notification{
-   // NSMutableArray *
+-(void) newResponsesReceived:(NSNotification *) notification{
+
+    NSMutableArray *latestresponses =  [[NetworkManager sharedManager] allResponsesSince:self.latestresponse forCrumb:@"1"];
+    NSMutableArray *insertedIndexPaths = [[NSMutableArray alloc] init];
+    
+    int index = [latestresponses count] - 1;
+    
+    for (Response *aresponse in latestresponses){
+        [dataModel.items addObject:aresponse];
+        [insertedIndexPaths addObject:[NSIndexPath indexPathForRow:index inSection:0]];
+        index -= 1;
+    }
+    
+    [self update];
+    
+    [tableView beginUpdates];
+    [tableView insertRowsAtIndexPaths:insertedIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    [tableView endUpdates];
 }
+
 
 -(void) update{
     NSMutableArray *modelItems = [dataModel items];
     NSLog(@"there are %d model items", [modelItems count]);
     NSMutableArray *updatedItems = [NSMutableArray arrayWithCapacity:modelItems.count];
     
-    for (Crumb* crumb in modelItems){
-        NSString *tmpURL = [NSString stringWithFormat:@"tt://detail/%@",[crumb identity]];
-        TTTableTextItem *item = [TTTableTextItem itemWithText:crumb.content  URL:tmpURL];
+    for (Response* response in modelItems){
+        NSString *tmpURL = [NSString stringWithFormat:@"tt://detail/%@",[response identity]];
+        TTTableTextItem *item = [TTTableTextItem itemWithText:response.content  URL:tmpURL];
         [updatedItems addObject:item];
-        
+        if (latestresponse != nil){
+            if ([latestresponse compare:response.date] == NSOrderedAscending) //if the latestcrumb I have is older than this, set it to the crumb date
+                self.latestresponse = [response date];
+        }else{
+            self.latestresponse = [response date];
+        }
       
     }
     
@@ -64,6 +90,8 @@
     self.items = updatedItems;
 }
 
+
+/*
 
 -(void) addCrumb:(NSTimer *)timer{
     
@@ -102,7 +130,7 @@
      //   [self.tableView insertRowsAtIndexPaths:insertedIndexPaths withRowAnimation:UITableViewRowAnimationFade];
       //  [self.tableView endUpdates];
     
-}
+}*/
 
 
 -(NSString *) titleForLoading:(BOOL)reloading{
@@ -122,7 +150,7 @@
 }
 
 -(void) dealloc{
-    NSLog(@"deallocing data model");
+    NSLog(@"deallocing data model!!!!!!!!!!!!!!!!!!!!!!");
     [dataModel release];
     [super dealloc];
 }

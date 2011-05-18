@@ -8,6 +8,8 @@
 
 #import "NetworkManager.h"
 #import "JSON.h"
+#import "Crumb.h"
+#import "Response.h"
 
 @interface NetworkManager()
 //-(void) refreshData:(NSTimer *)timer;
@@ -88,15 +90,16 @@ static NetworkManager *sharedManagerInstance = nil;
     }
     else{
         self.scrumbs = [[NSMutableArray alloc] init];
+        self.responses = [[NSMutableDictionary alloc] init];
         
         NSMutableArray *tmpcrumbs = (NSMutableArray*) [data objectForKey:@"crumbs"];
         for (NSDictionary *dict in tmpcrumbs){
-            NSLog (@"got a crumb %@", [dict objectForKey:@"content"]);
-            [self.scrumbs addObject:dict];
+            NSLog (@"got a crumb %@ date, %@", [dict objectForKey:@"content"], [dict objectForKey:@"date"]);
+            [self.scrumbs addObject: [[Crumb alloc] initWithDictionary:dict]];
         }
         
         NSLog(@"the crumbs size is %d", [scrumbs count]);
-       self.scrumbs = tmpcrumbs;
+       //self.scrumbs = tmpcrumbs;
         //[tmpcrumbs release];
         
         //NSMutableDictionary* tmpresponses = (NSMutableDictionary*) [data objectForKey:@"responses"];
@@ -116,62 +119,64 @@ static NetworkManager *sharedManagerInstance = nil;
 }
 
 -(void) refreshData: (NSTimer*) timer{
-    NSLog(@"refreshing data!!!");
-    
+   
+    NSDate *now = [[NSDate alloc] init];
+    NSString *dateString = [df stringFromDate:now];
+    [now release];
     NSArray *keys = [NSArray arrayWithObjects: @"identity", @"type", @"author", @"content", @"clique", @"date", nil];
-    NSArray *values = [NSArray arrayWithObjects: @"1",@"text",@"author1",@"somecontent",@"langbourne", @"2001-03-24 10:45:32", nil];
-    
-    NSLog(@"the crumbs size is %d", [self.scrumbs count]);
-    
+    NSArray *values = [NSArray arrayWithObjects: @"1",@"text",@"author1",@"somecontent",@"langbourne", dateString, nil];
     NSDictionary* crumbdict = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
-    
-    NSLog(@"adding a crumb to crumb array size %d", [self.scrumbs count]);
-    [scrumbs addObject:crumbdict];
+    [scrumbs addObject: [[Crumb alloc] initWithDictionary:crumbdict]];
     [crumbdict release];
-     
-     
-   // NSLog(@"posting notification!");
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"newCrumbsReceived" object:nil userInfo:crumbdict];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newCrumbsReceived" object:nil userInfo:nil];
 
-    /*
+    
     NSString* responseto = [NSString stringWithFormat:@"1"];
+    
     keys = [NSArray arrayWithObjects: @"identity", @"responseto", @"content", @"author", @"date",nil];
-    values = [NSArray arrayWithObjects: @"1", responseto ,@"some response",@"someone", @"2001-03-24 10:45:32", nil];
+    values = [NSArray arrayWithObjects: @"1", responseto ,@"some response",@"someone", dateString, nil];
+    
     NSDictionary* responsedict = [[NSDictionary alloc] initWithObjects:values forKeys:keys];
     
     NSMutableArray * tmpresponses = (NSMutableArray *) [responses objectForKey:responseto];
     
     if (tmpresponses == NULL){
         tmpresponses = [[NSMutableArray alloc] init];
-        [tmpresponses addObject:responsedict];
+        [tmpresponses addObject: [[Response alloc] initWithDictionary:responsedict]];
     }
     else{
-        [tmpresponses insertObject: responsedict atIndex:0];
+        [tmpresponses insertObject: [[Response alloc] initWithDictionary:responsedict] atIndex:0];
     }
+    
+    NSLog(@"created tmp responses of size %d", [tmpresponses count]);
     
     [responses setObject:tmpresponses forKey:responseto]; 
     
-    [responsedict release];
-    [tmpresponses release];
+    NSLog(@"added tmpresponses to resppnses for key %@", responseto);
     
-     [[NSNotificationCenter defaultCenter] postNotificationName:@"newResponseReceived" object:nil userInfo:nil];
-    //send response update notification!
-     */
+    [responsedict release];
+    //[tmpresponses release];
+    
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"newResponsesReceived" object:nil userInfo:nil];
+  
 }
 
 //just do basic stuff for now
 
 -(NSMutableArray *) allCrumbsSince:(NSDate *) adate{
     
-    
+    NSLog(@"getting all crumbs since %@", [df stringFromDate:adate]);
     if (adate == nil){
         return self.scrumbs;
     }else{
         NSMutableArray *toreturn = [[NSMutableArray alloc] init];
-        for (NSDictionary *acrumb in scrumbs){
-            NSDate *crumbdate = [df dateFromString:[acrumb valueForKey:@"date"]];
-            if ([adate earlierDate:crumbdate])
+        
+        for (Crumb *acrumb in scrumbs){
+            //NSDate *crumbdate = [df dateFromString:[acrumb valueForKey:@"date"]];
+            if ([adate compare:acrumb.date ] == NSOrderedAscending){
                 [toreturn addObject:acrumb];
+                
+            }
         }
         return toreturn;
     }
@@ -179,14 +184,31 @@ static NetworkManager *sharedManagerInstance = nil;
 
 //just do basic stuff for now
 
--(NSMutableArray *) responsesSince:(NSDate *) adate forCrumb:(NSString *) crumbid{
+-(NSMutableArray *) allResponsesSince:(NSDate *) adate forCrumb:(NSString *) crumbid{
+    
+     NSLog(@"getting all responses to crumb %@ since %@", crumbid, [df stringFromDate:adate]);
+    
+    NSArray *myresponses = [responses objectForKey:crumbid];
+    
+    if (myresponses != nil){
+        NSLog(@"there are %d responses for crumb %@", [myresponses count], crumbid);
+    }else{
+        NSLog(@"hmmm responses is nil!");
+    }
+    
+    NSMutableArray *toreturn = [[NSMutableArray alloc] init];
+    
+
+    
+    
     if (adate == nil){
         return [responses objectForKey: crumbid];
     }else{
         NSMutableArray *toreturn = [[NSMutableArray alloc] init];
-        for (NSDictionary *aresponse in [responses objectForKey:crumbid]){
-            NSDate *responsedate = [df dateFromString:[aresponse valueForKey:@"date"]];
-            if ([adate earlierDate:responsedate])
+        for (Response *aresponse in [responses objectForKey:crumbid]){
+            NSLog(@"checking %@ %@", aresponse.content, aresponse.date);
+           
+            if ([adate compare:aresponse.date ] == NSOrderedAscending)
                 [toreturn addObject:aresponse];
         }
         return toreturn;

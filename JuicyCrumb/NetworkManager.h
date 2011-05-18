@@ -24,7 +24,7 @@
 + (NetworkManager*)sharedManager;
 
 -(NSMutableArray *) allCrumbsSince:(NSDate *) adate;
--(NSMutableArray *) responsesSince:(NSDate *) adate forCrumb:(NSString *) crumbid;
+-(NSMutableArray *) allResponsesSince:(NSDate *) adate forCrumb:(NSString *) crumbid;
 -(void) refreshData;
 -(void) getLatestData;
 
