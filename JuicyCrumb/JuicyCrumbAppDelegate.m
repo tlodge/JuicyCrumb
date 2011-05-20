@@ -11,6 +11,7 @@
 #import "MenuController.h"
 #import "ContentController.h"
 #import "CrumbDetailController.h"
+#import "CliqueMapViewController.h"
 
 @implementation JuicyCrumbAppDelegate
 
@@ -32,7 +33,12 @@
     // these URLs will switch to the tab containing the menu
     [map from:@"tt://menu/(initWithMenu:)" toSharedViewController:[MenuController class]];
     
+    
+    [map from:@"tt://nib/(loadFromNib:)/(withClass:)" toSharedViewController:self];
+    
     [map from:@"tt://response/(initWithResponse:)" toViewController:[ContentController class]];
+    
+    [map from:@"tt://cliques" toViewController:[CliqueMapViewController class]];
     
     [map from:@"tt://detail/(initWithMenu:)" toSharedViewController:[CrumbDetailController class]];
     
@@ -46,6 +52,14 @@
     
      [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (UIViewController*)loadFromNib:(NSString *)nibName withClass:className {
+    UIViewController* newController = [[NSClassFromString(className) alloc]
+                                       initWithNibName:nibName bundle:nil];
+    [newController autorelease];
+    
+    return newController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

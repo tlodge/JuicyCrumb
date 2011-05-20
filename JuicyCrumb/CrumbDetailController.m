@@ -61,11 +61,27 @@
 }
 
 - (void)setCrumbId:(NSString*)crid {
-    NSLog(@"ok createing my NEW........!!!!  datasource...");
     _crumbId = crid;
-    ResponseDataSource *mydataSource = [[ResponseDataSource alloc] init ];//initWithCrumb:_crumbId];
+    ResponseDataSource *mydataSource = [[ResponseDataSource alloc] initWithCrumb:_crumbId];
     self.dataSource =  mydataSource;
     TT_RELEASE_SAFELY(mydataSource);
 }
+
+- (void)viewDidUnload {
+    NSLog(@"view has unloaded!!!");
+   
+    [super viewDidUnload];
+    
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+
+- (void)dealloc {
+    NSLog(@"deallocing myself.....");
+    [super dealloc];
+}
+
+
 
 @end

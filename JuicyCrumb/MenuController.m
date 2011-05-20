@@ -18,16 +18,12 @@
 
 - (NSString*)nameForMenuPage:(MenuPage)page {
     switch (page) {
-        case MenuPageBreakfast:
-            return @"Breakfast";
-        case MenuPageLunch:
-            return @"Lunch";
-        case MenuPageDinner:
-            return @"Dinner";
-        case MenuPageDessert:
-            return @"Dessert";
-        case MenuPageAbout:
-            return @"About";
+        case MenuPageCrumbs:
+            return @"Latest Crumbs";
+        case MenuPageConfig:
+            return @"My Account";
+        case MenuPageSubscribe:
+            return @"My Cliques";
         default:
             return @"";
     }
@@ -92,13 +88,13 @@
                                      action:@selector(openURLFromButton:)] autorelease];
  
     
-    if (_page == MenuPageBreakfast) {
+    if (_page == MenuPageCrumbs) {
        
                           
         CrumbDataSource *crumbdataSource = [[CrumbDataSource alloc] init];
         self.dataSource =  crumbdataSource;
         TT_RELEASE_SAFELY(crumbdataSource);
-    } else if (_page == MenuPageLunch) {
+    } else if (_page == MenuPageConfig) {
         self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
                            @"Menu",
                            [TTTableTextItem itemWithText:@"Mac & Cheese" URL:@"tt://food/macncheese"],
@@ -111,7 +107,7 @@
                            [TTTableTextItem itemWithText:@"Just Desserts" URL:@"tt://menu/4"],
                            [TTTableTextItem itemWithText:@"Complaints" URL:@"tt://about/complaints"],
                            nil];
-    } else if (_page == MenuPageDinner) {
+    } else if (_page == MenuPageSubscribe) {
         self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
                            @"Appetizers",
                            [TTTableTextItem itemWithText:@"Potstickers" URL:@"tt://food/potstickers"],
@@ -131,22 +127,6 @@
                            @"Other",
                            [TTTableTextItem itemWithText:@"Just Desserts" URL:@"tt://menu/4"],
                            [TTTableTextItem itemWithText:@"Complaints" URL:@"tt://about/complaints"],
-                           nil];
-    } else if (_page == MenuPageDessert) {
-        self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
-                           @"Yum",
-                           [TTTableTextItem itemWithText:@"Chocolate Cake" URL:@"tt://food/cake"],
-                           [TTTableTextItem itemWithText:@"Apple Pie" URL:@"tt://food/pie"],
-                           @"Other",
-                           [TTTableTextItem itemWithText:@"Complaints" URL:@"tt://about/complaints"],
-                           nil];
-    } else if (_page == MenuPageAbout) {
-        self.dataSource = [TTListDataSource dataSourceWithObjects:
-                           [TTTableTextItem itemWithText:@"Our Story" URL:@"tt://about/story"],
-                           [TTTableTextItem itemWithText:@"Call Us" URL:@"tel:5555555"],
-                           [TTTableTextItem itemWithText:@"Text Us" URL:@"sms:5555555"],
-                           [TTTableTextItem itemWithText:@"Website" URL:@"http://www.melsdrive-in.com"],
-                           [TTTableTextItem itemWithText:@"Complaints Dept." URL:@"tt://about/complaints"],
                            nil];
     }
 }

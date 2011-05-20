@@ -111,6 +111,7 @@
 }
 
 -(void) dealloc{
+    NSLog(@"deallocing the crumb data source....");
    // [dataModel release];
     [super dealloc];
 }

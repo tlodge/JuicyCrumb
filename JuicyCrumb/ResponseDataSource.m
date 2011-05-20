@@ -26,7 +26,16 @@
 //@synthesize tableView;
 @synthesize dataModel;
 @synthesize latestresponse;
+@synthesize crumbid;
 
+
+-(id) initWithCrumb:(NSString*)crid{
+    if (self = [super init]){
+        self.dataModel = [[ResponseDataModel alloc] init];
+        self.crumbid = crid;
+    }
+    return self;
+}
 -(id) init{
     if (self = [super init]){
         self.dataModel = [[ResponseDataModel alloc] init];
@@ -49,7 +58,7 @@
 
 -(void) newResponsesReceived:(NSNotification *) notification{
 
-    NSMutableArray *latestresponses =  [[NetworkManager sharedManager] allResponsesSince:self.latestresponse forCrumb:@"1"];
+    NSMutableArray *latestresponses =  [[NetworkManager sharedManager] allResponsesSince:self.latestresponse forCrumb:crumbid];
     NSMutableArray *insertedIndexPaths = [[NSMutableArray alloc] init];
     
     int index = [latestresponses count] - 1;
@@ -150,7 +159,8 @@
 }
 
 -(void) dealloc{
-    NSLog(@"deallocing data model!!!!!!!!!!!!!!!!!!!!!!");
+   
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [dataModel release];
     [super dealloc];
 }

@@ -12,8 +12,7 @@
 #import "Response.h"
 
 @interface NetworkManager()
-//-(void) refreshData:(NSTimer *)timer;
-//-(void) getLatestData;
+-(void) refreshData:(NSTimer *)timer;
 @end
 
 
@@ -195,10 +194,6 @@ static NetworkManager *sharedManagerInstance = nil;
     }else{
         NSLog(@"hmmm responses is nil!");
     }
-    
-    NSMutableArray *toreturn = [[NSMutableArray alloc] init];
-    
-
     
     
     if (adate == nil){

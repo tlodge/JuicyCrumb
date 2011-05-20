@@ -8,11 +8,9 @@
 
 typedef enum {
     MenuPageNone,
-    MenuPageBreakfast,
-    MenuPageLunch,
-    MenuPageDinner,
-    MenuPageDessert,
-    MenuPageAbout,
+    MenuPageCrumbs,
+    MenuPageConfig,
+    MenuPageSubscribe,
 } MenuPage;
 
 @interface MenuController : TTTableViewController {

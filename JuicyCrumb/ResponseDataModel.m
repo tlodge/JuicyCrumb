@@ -54,6 +54,7 @@
 }
 
 -(void) dealloc{
+    NSLog(@"deallocing the response data model..");
     [items release];
     [super dealloc];
 }

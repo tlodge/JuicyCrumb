@@ -25,7 +25,6 @@
 
 -(NSMutableArray *) allCrumbsSince:(NSDate *) adate;
 -(NSMutableArray *) allResponsesSince:(NSDate *) adate forCrumb:(NSString *) crumbid;
--(void) refreshData;
 -(void) getLatestData;
 
 @end
