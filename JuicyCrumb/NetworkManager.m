@@ -97,7 +97,15 @@ static NetworkManager *sharedManagerInstance = nil;
             [self.scrumbs addObject: [[Crumb alloc] initWithDictionary:dict]];
         }
         
+        
         NSLog(@"the crumbs size is %d", [scrumbs count]);
+        
+        
+        NSMutableArray *tmpcliques = (NSMutableArray*) [data objectForKey:@"cliques"];
+        for (NSDictionary *dict in tmpcliques){
+            NSLog (@"got a cliques %@", [dict objectForKey:@"identity"]);
+           
+        }
        //self.scrumbs = tmpcrumbs;
         //[tmpcrumbs release];
         

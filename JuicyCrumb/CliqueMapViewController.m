@@ -9,6 +9,12 @@
 #import "CliqueMapViewController.h"
 #import "CliqueAnnotation.h"
 
+@interface CliqueMapViewController() 
+
+-(void) addSomeDevelopments;
+
+@end
+
 @implementation CliqueMapViewController
 
 @synthesize mapAnnotations;
@@ -55,6 +61,16 @@
     [super viewDidLoad];
    
 
+   
+    
+    [self addSomeDevelopments];
+  
+    
+    [self.view addSubview:mapView];
+}
+
+-(void) addSomeDevelopments{
+    
     self.mapAnnotations = [[NSMutableArray alloc] init];
     mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     mapView.mapType = MKMapTypeStandard;   // also MKMapTypeSatellite or MKMapTypeHybrid
@@ -66,13 +82,38 @@
     newRegion.span.latitudeDelta = 0.02;
     newRegion.span.longitudeDelta = 0.02;
     
+    CLLocationCoordinate2D theCoordinate;
+    theCoordinate.latitude = 51.486644;
+    theCoordinate.longitude = -0.017467;
     
     [mapView setRegion:newRegion animated:YES];
-    CliqueAnnotation *cliqueAnnotation = [[CliqueAnnotation alloc] init];
+    
+    CliqueAnnotation *cliqueAnnotation = [[CliqueAnnotation alloc] initWithCoordinatesAndTitle: theCoordinate title:@"Langbournee Place" subtitle:@"Posh riverside flats" clique:@"Langbourne"
+                                          ];
     [self.mapAnnotations addObject:cliqueAnnotation];
     [cliqueAnnotation release];
-    [mapView addAnnotation:[self.mapAnnotations objectAtIndex:0]];
-    [self.view addSubview:mapView];
+    
+    theCoordinate.latitude = 51.488591;
+    theCoordinate.longitude = -0.021801;
+
+    cliqueAnnotation = [[CliqueAnnotation alloc] initWithCoordinatesAndTitle: theCoordinate title:@"Burrells Wharf" subtitle:@"Where ships were built" clique:@"Burrells"
+                        ];
+    [self.mapAnnotations addObject:cliqueAnnotation];
+    [cliqueAnnotation release];
+
+   
+    theCoordinate.latitude = 51.504702;
+    theCoordinate.longitude = -0.026865;
+
+    cliqueAnnotation = [[CliqueAnnotation alloc] initWithCoordinatesAndTitle: theCoordinate title:@"Canary Riverside Place" subtitle:@"Uber Posh flats" clique:@"Canary Riverside"
+                        ];
+    [self.mapAnnotations addObject:cliqueAnnotation];
+    [cliqueAnnotation release];
+
+    for(CliqueAnnotation* ca in self.mapAnnotations){
+        [mapView addAnnotation:ca];
+    }
+    
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation

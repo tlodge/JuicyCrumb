@@ -19,5 +19,38 @@
             "3":[
                 {"responseto":"3","identity":"1","author":"author11","content":"bollocks!", "date":"2001-03-24 10:47:32"}
                 ]
-    }
+    },
+
+    "cliques":[
+        {
+            "identity":"langbourne",
+            "name":"Langbourne Place",
+            "strapline":"Nice modern flats",
+            "coordinates":{
+                "long":51.486644,
+                "lat":-0.017467
+            },
+            "membership":"private"
+        },
+        {
+            "identity":"burrells",
+            "name":"Burrells Wharf",
+            "strapline":"Where Mr Brunel built ships",
+            "coordinates":{
+                "long":51.488591,
+                "lat":-0.021801
+            },
+            "membership":"private"
+        },
+        {
+            "identity":"canaryriverside",
+            "name":"Canary Riverside",
+            "strapline":"Very posh flats!",
+            "coordinates":{
+                "long":51.504702,
+                "lat":-0.026865
+            },
+            "membership":"private"
+        }
+    ]
 }       

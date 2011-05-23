@@ -11,24 +11,44 @@
 
 @implementation CliqueAnnotation
 
+@synthesize title;
+@synthesize subtitle;
+@synthesize cliqueid;
+@synthesize coords;
+
+
+- (id)initWithCoordinatesAndTitle: (CLLocationCoordinate2D) lcd title:(NSString*) atitle subtitle:(NSString*)asubtitle clique:(NSString *) cid{
+    
+    if (self = [super init]) {
+        self.coords = lcd;
+        self.title = atitle;
+        self.subtitle = asubtitle;
+        cliqueid = cid;
+        
+    }
+    return self;
+}
+
+
 - (CLLocationCoordinate2D)coordinate;
 {
-    CLLocationCoordinate2D theCoordinate;
+    return coords;
+    /*CLLocationCoordinate2D theCoordinate;
     theCoordinate.latitude = 51.486644;
     theCoordinate.longitude = -0.017467;
-    return theCoordinate; 
+    return theCoordinate; */
 }
 
 // required if you set the MKPinAnnotationView's "canShowCallout" property to YES
 - (NSString *)title
 {
-    return @"Langbourne Place";
+    return title;//@"Langbourne Place";
 }
 
 // optional
 - (NSString *)subtitle
 {
-    return @"Posh riverside flats";
+    return subtitle;// @"Posh riverside flats";
 }
 
 - (void)dealloc
