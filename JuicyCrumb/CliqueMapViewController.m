@@ -7,10 +7,11 @@
 //
 
 #import "CliqueMapViewController.h"
-
+#import "CliqueAnnotation.h"
 
 @implementation CliqueMapViewController
 
+@synthesize mapAnnotations;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,10 +53,71 @@
 {
      
     [super viewDidLoad];
+   
+
+    self.mapAnnotations = [[NSMutableArray alloc] init];
     mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+    mapView.mapType = MKMapTypeStandard;   // also MKMapTypeSatellite or MKMapTypeHybrid
+    mapView.delegate = self;
+    MKCoordinateRegion newRegion;
+    
+    newRegion.center.latitude = 51.504615;
+    newRegion.center.longitude = -0.020857;
+    newRegion.span.latitudeDelta = 0.02;
+    newRegion.span.longitudeDelta = 0.02;
+    
+    
+    [mapView setRegion:newRegion animated:YES];
+    CliqueAnnotation *cliqueAnnotation = [[CliqueAnnotation alloc] init];
+    [self.mapAnnotations addObject:cliqueAnnotation];
+    [cliqueAnnotation release];
+    [mapView addAnnotation:[self.mapAnnotations objectAtIndex:0]];
     [self.view addSubview:mapView];
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    NSLog(@"ok am in her at least..");
+    static NSString* CliqueAnnotationIdentifier = @"CliqueAnnotationIdentifier";
+    MKPinAnnotationView* pinView = (MKPinAnnotationView *)
+    [mapView dequeueReusableAnnotationViewWithIdentifier:CliqueAnnotationIdentifier];
+    if (!pinView)
+    {
+        NSLog(@"creating a new pin view!");
+        // if an existing pin view was not available, create one
+        MKPinAnnotationView* customPinView = [[[MKPinAnnotationView alloc]
+                                               initWithAnnotation:annotation reuseIdentifier:CliqueAnnotationIdentifier] autorelease];
+        customPinView.pinColor = MKPinAnnotationColorPurple;
+        customPinView.animatesDrop = YES;
+        customPinView.canShowCallout = YES;
+        
+        // add a detail disclosure button to the callout which will open a new view controller page
+        //
+        // note: you can assign a specific call out accessory view, or as MKMapViewDelegate you can implement:
+        //  - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control;
+        //
+        UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        [rightButton addTarget:self
+                        action:@selector(showDetails:)
+              forControlEvents:UIControlEventTouchUpInside];
+        customPinView.rightCalloutAccessoryView = rightButton;
+        
+        return customPinView;
+    }else
+    {
+        pinView.annotation = annotation;
+    }
+    return pinView;
+}
+
+
+- (void)showDetails:(id)sender{
+        // the detail view does not want a toolbar so hide it
+    //[self.navigationController setToolbarHidden:YES animated:NO];
+        
+    //[self.navigationController pushViewController:self.detailViewController animated:YES];
+    
+}
 
 - (void)viewDidUnload
 {

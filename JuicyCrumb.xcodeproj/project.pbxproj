@@ -50,6 +50,7 @@
 		A3C5C2E31386AE3700FF413F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C5C2E21386AE3600FF413F /* Security.framework */; };
 		A3C5C2E61386B0F900FF413F /* CliqueMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C5C2E51386B0F400FF413F /* CliqueMapViewController.m */; };
 		A3C5C2E81386B18A00FF413F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C5C2E71386B18800FF413F /* MapKit.framework */; };
+		A3C5C31D138A9AE300FF413F /* CliqueAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C5C31C138A9A9D00FF413F /* CliqueAnnotation.m */; };
 		A3D56B07137D789C0081A0AE /* CrumbDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B06137D789B0081A0AE /* CrumbDataSource.m */; };
 		A3D56B0A137D78E90081A0AE /* CrumbDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B09137D78E90081A0AE /* CrumbDataModel.m */; };
 		A3D56B0D137D79040081A0AE /* ResponseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B0C137D79010081A0AE /* ResponseDataModel.m */; };
@@ -283,6 +284,8 @@
 		A3C5C2E41386B0F000FF413F /* CliqueMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CliqueMapViewController.h; sourceTree = "<group>"; };
 		A3C5C2E51386B0F400FF413F /* CliqueMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CliqueMapViewController.m; sourceTree = "<group>"; };
 		A3C5C2E71386B18800FF413F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A3C5C31B138A9A9200FF413F /* CliqueAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CliqueAnnotation.h; sourceTree = "<group>"; };
+		A3C5C31C138A9A9D00FF413F /* CliqueAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CliqueAnnotation.m; sourceTree = "<group>"; };
 		A3D56B05137D789B0081A0AE /* CrumbDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbDataSource.h; sourceTree = "<group>"; };
 		A3D56B06137D789B0081A0AE /* CrumbDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbDataSource.m; sourceTree = "<group>"; };
 		A3D56B08137D78E80081A0AE /* CrumbDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbDataModel.h; sourceTree = "<group>"; };
@@ -467,6 +470,8 @@
 				A3C5C2991386AAB800FF413F /* LoginViewController.m */,
 				A3C5C2E41386B0F000FF413F /* CliqueMapViewController.h */,
 				A3C5C2E51386B0F400FF413F /* CliqueMapViewController.m */,
+				A3C5C31B138A9A9200FF413F /* CliqueAnnotation.h */,
+				A3C5C31C138A9A9D00FF413F /* CliqueAnnotation.m */,
 				A3C5C29A1386AABD00FF413F /* KeychainManager.h */,
 				A3C5C29B1386AABF00FF413F /* KeychainManager.m */,
 				A31D51A513705C720094D3D3 /* iPhone */,
@@ -857,6 +862,7 @@
 				A3C5C29C1386AAC100FF413F /* LoginViewController.m in Sources */,
 				A3C5C29D1386AAC100FF413F /* KeychainManager.m in Sources */,
 				A3C5C2E61386B0F900FF413F /* CliqueMapViewController.m in Sources */,
+				A3C5C31D138A9AE300FF413F /* CliqueAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

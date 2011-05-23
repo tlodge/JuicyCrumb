@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface CliqueMapViewController : UIViewController {
+@interface CliqueMapViewController : UIViewController <MKMapViewDelegate> {
     MKMapView *mapView;
+    NSMutableArray *mapAnnotations;
 }
+
+@property(nonatomic, retain) NSMutableArray* mapAnnotations;
 
 @end
