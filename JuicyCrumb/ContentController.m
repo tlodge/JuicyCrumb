@@ -16,6 +16,27 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (id)initWithWaitress:(NSString*)waitress query:(NSDictionary*)query {
+    if (self = [super init]) {
+        self.content = waitress;
+        self.text = [NSString stringWithFormat:@"Hello - would you like to send something?"];
+        
+        self.title = @"Send a crumb";
+       
+        /*self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+                                                   initWithTitle:@"Order" style:UIBarButtonItemStyleDone
+                                                   target:@"tt://order/confirm" action:@selector(openURL)] autorelease];*/
+        
+        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
+                                                  initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered
+                                                  target:self action:@selector(dismiss)] autorelease];
+        
+        //TTDINFO(@"ORDER REFERRED FROM %@", [query objectForKey:@"ref"]);
+    }
+    return self;
+}
+
+
 - (id)initWithResponse:(NSString*)responseid {
     if (self = [super init]) {
         self.content = responseid;

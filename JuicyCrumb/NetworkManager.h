@@ -7,16 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <MapKit/MapKit.h>
 
 @interface NetworkManager : NSObject {
     NSMutableArray* scrumbs;
     NSMutableDictionary* responses;
+    NSMutableArray *cliques;
     NSTimer* timer;
     NSDateFormatter* df;
 }
 
 @property(nonatomic, retain) NSMutableArray *scrumbs;
+@property(nonatomic, retain) NSMutableArray *cliques;
 @property(nonatomic, retain) NSMutableDictionary *responses;
 @property(nonatomic, retain) NSTimer *timer;
 @property(nonatomic, retain) NSDateFormatter* df;
@@ -25,6 +27,8 @@
 
 -(NSMutableArray *) allCrumbsSince:(NSDate *) adate;
 -(NSMutableArray *) allResponsesSince:(NSDate *) adate forCrumb:(NSString *) crumbid;
+-(NSMutableArray *) surroundingCliques: (CLLocationCoordinate2D) coords radius:(float) radius;
+
 -(void) getLatestData;
 
 @end

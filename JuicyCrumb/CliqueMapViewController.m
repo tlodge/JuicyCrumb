@@ -8,6 +8,8 @@
 
 #import "CliqueMapViewController.h"
 #import "CliqueAnnotation.h"
+#import "NetworkManager.h"
+#import "Clique.h"
 
 @interface CliqueMapViewController() 
 
@@ -82,21 +84,32 @@
     newRegion.span.latitudeDelta = 0.02;
     newRegion.span.longitudeDelta = 0.02;
     
-    CLLocationCoordinate2D theCoordinate;
-    theCoordinate.latitude = 51.486644;
-    theCoordinate.longitude = -0.017467;
     
+    
+    CLLocationCoordinate2D theCoordinate;
+    theCoordinate.latitude = 51.504615;
+    theCoordinate.longitude = -0.020857;
     [mapView setRegion:newRegion animated:YES];
     
-    CliqueAnnotation *cliqueAnnotation = [[CliqueAnnotation alloc] initWithCoordinatesAndTitle: theCoordinate title:@"Langbournee Place" subtitle:@"Posh riverside flats" clique:@"Langbourne"
-                                          ];
-    [self.mapAnnotations addObject:cliqueAnnotation];
-    [cliqueAnnotation release];
+    NSArray *cliques = [[NetworkManager sharedManager] surroundingCliques: theCoordinate radius:1.0];
+    
+    NSLog(@"great, clique size is %d", [cliques count]);
+    for (Clique *clique in cliques){
+       
+        theCoordinate.latitude = clique.lat;
+        theCoordinate.longitude = clique.lng;
+        
+        NSLog(@"got lat lng %f %f", clique.lat, clique.lng);
+        CliqueAnnotation *cliqueAnnotation = [[CliqueAnnotation alloc] initWithCoordinatesAndTitle: theCoordinate title:clique.name subtitle:clique.tagline clique:clique.identity];
+        [self.mapAnnotations addObject:cliqueAnnotation];
+        [cliqueAnnotation release];
+    }
+    
     
     theCoordinate.latitude = 51.488591;
     theCoordinate.longitude = -0.021801;
 
-    cliqueAnnotation = [[CliqueAnnotation alloc] initWithCoordinatesAndTitle: theCoordinate title:@"Burrells Wharf" subtitle:@"Where ships were built" clique:@"Burrells"
+    /*cliqueAnnotation = [[CliqueAnnotation alloc] initWithCoordinatesAndTitle: theCoordinate title:@"Burrells Wharf" subtitle:@"Where ships were built" clique:@"Burrells"
                         ];
     [self.mapAnnotations addObject:cliqueAnnotation];
     [cliqueAnnotation release];
@@ -109,7 +122,8 @@
                         ];
     [self.mapAnnotations addObject:cliqueAnnotation];
     [cliqueAnnotation release];
-
+     */
+    
     for(CliqueAnnotation* ca in self.mapAnnotations){
         [mapView addAnnotation:ca];
     }

@@ -44,6 +44,8 @@
     
     [map from:@"tt://order/food" toViewController:[TTPostController class]];
     
+    [map from:@"tt://order?waitress=(initWithWaitress:)" toModalViewController:[ContentController class]];
+    
     if (![navigator restoreViewControllers]) {
         // This is the first launch, so we just start with the tab bar
         [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://tabBar"]];

@@ -10,6 +10,7 @@
 #import "JSON.h"
 #import "Crumb.h"
 #import "Response.h"
+#import "Clique.h"
 
 @interface NetworkManager()
 -(void) refreshData:(NSTimer *)timer;
@@ -21,6 +22,7 @@
 
 @synthesize scrumbs;
 @synthesize responses;
+@synthesize cliques;
 @synthesize timer;
 @synthesize df;
 
@@ -69,9 +71,9 @@ static NetworkManager *sharedManagerInstance = nil;
 
 - init {
 	if (self = [super init]) {
-        NSLog(@"initing the network manager...");
         self.df = [[NSDateFormatter alloc] init];
         [self.df setDateFormat:@"dd-MM-yy HH:mm:ss"];
+        [self getLatestData];
 	}
 	return self;
 }
@@ -90,28 +92,21 @@ static NetworkManager *sharedManagerInstance = nil;
     else{
         self.scrumbs = [[NSMutableArray alloc] init];
         self.responses = [[NSMutableDictionary alloc] init];
+        self.cliques = [[NSMutableArray alloc] init];
         
         NSMutableArray *tmpcrumbs = (NSMutableArray*) [data objectForKey:@"crumbs"];
         for (NSDictionary *dict in tmpcrumbs){
-            NSLog (@"got a crumb %@ date, %@", [dict objectForKey:@"content"], [dict objectForKey:@"date"]);
             [self.scrumbs addObject: [[Crumb alloc] initWithDictionary:dict]];
         }
         
         
-        NSLog(@"the crumbs size is %d", [scrumbs count]);
         
         
         NSMutableArray *tmpcliques = (NSMutableArray*) [data objectForKey:@"cliques"];
-        for (NSDictionary *dict in tmpcliques){
-            NSLog (@"got a cliques %@", [dict objectForKey:@"identity"]);
-           
-        }
-       //self.scrumbs = tmpcrumbs;
-        //[tmpcrumbs release];
         
-        //NSMutableDictionary* tmpresponses = (NSMutableDictionary*) [data objectForKey:@"responses"];
-        //self.responses = tmpresponses;
-        //[tmpresponses release];
+        for (NSDictionary *dict in tmpcliques){
+            [self.cliques addObject: [[Clique alloc] initWithDictionary:dict]];
+        }
     }
    
     
@@ -155,12 +150,8 @@ static NetworkManager *sharedManagerInstance = nil;
         [tmpresponses insertObject: [[Response alloc] initWithDictionary:responsedict] atIndex:0];
     }
     
-    NSLog(@"created tmp responses of size %d", [tmpresponses count]);
     
     [responses setObject:tmpresponses forKey:responseto]; 
-    
-    NSLog(@"added tmpresponses to resppnses for key %@", responseto);
-    
     [responsedict release];
     //[tmpresponses release];
     
@@ -195,13 +186,7 @@ static NetworkManager *sharedManagerInstance = nil;
     
      NSLog(@"getting all responses to crumb %@ since %@", crumbid, [df stringFromDate:adate]);
     
-    NSArray *myresponses = [responses objectForKey:crumbid];
-    
-    if (myresponses != nil){
-        NSLog(@"there are %d responses for crumb %@", [myresponses count], crumbid);
-    }else{
-        NSLog(@"hmmm responses is nil!");
-    }
+    //NSArray *myresponses = [responses objectForKey:crumbid];
     
     
     if (adate == nil){
@@ -216,6 +201,10 @@ static NetworkManager *sharedManagerInstance = nil;
         }
         return toreturn;
     }
+}
+
+-(NSMutableArray *) surroundingCliques: (CLLocationCoordinate2D) coords radius:(float) radius{
+    return self.cliques;
 }
 
 

@@ -27,8 +27,8 @@
             "name":"Langbourne Place",
             "strapline":"Nice modern flats",
             "coordinates":{
-                "long":51.486644,
-                "lat":-0.017467
+                "lat":51.486644,
+                "lng":-0.017467
             },
             "membership":"private"
         },
@@ -37,8 +37,8 @@
             "name":"Burrells Wharf",
             "strapline":"Where Mr Brunel built ships",
             "coordinates":{
-                "long":51.488591,
-                "lat":-0.021801
+                "lat":51.488591,
+                "lng":-0.021801
             },
             "membership":"private"
         },
@@ -47,8 +47,8 @@
             "name":"Canary Riverside",
             "strapline":"Very posh flats!",
             "coordinates":{
-                "long":51.504702,
-                "lat":-0.026865
+                "lat":51.504702,
+                "lng":-0.026865
             },
             "membership":"private"
         }

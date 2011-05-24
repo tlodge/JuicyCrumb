@@ -38,7 +38,7 @@
 }
 
 -(void) tableViewDidLoadModel:(UITableView *)tv{
-    [[NetworkManager sharedManager] getLatestData];
+    [NetworkManager sharedManager]; // getLatestData];
     tableView = tv;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newCrumbsReceived:) name:@"newCrumbsReceived" object:nil];
 	[self update];

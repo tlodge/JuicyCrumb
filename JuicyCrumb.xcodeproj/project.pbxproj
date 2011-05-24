@@ -51,6 +51,8 @@
 		A3C5C2E61386B0F900FF413F /* CliqueMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C5C2E51386B0F400FF413F /* CliqueMapViewController.m */; };
 		A3C5C2E81386B18A00FF413F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C5C2E71386B18800FF413F /* MapKit.framework */; };
 		A3C5C31D138A9AE300FF413F /* CliqueAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C5C31C138A9A9D00FF413F /* CliqueAnnotation.m */; };
+		A3C5C336138BD5E800FF413F /* Clique.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C5C335138BD5E600FF413F /* Clique.m */; };
+		A3C5C348138BE0A300FF413F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C5C347138BE0A200FF413F /* CoreLocation.framework */; };
 		A3D56B07137D789C0081A0AE /* CrumbDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B06137D789B0081A0AE /* CrumbDataSource.m */; };
 		A3D56B0A137D78E90081A0AE /* CrumbDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B09137D78E90081A0AE /* CrumbDataModel.m */; };
 		A3D56B0D137D79040081A0AE /* ResponseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B0C137D79010081A0AE /* ResponseDataModel.m */; };
@@ -286,6 +288,9 @@
 		A3C5C2E71386B18800FF413F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A3C5C31B138A9A9200FF413F /* CliqueAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CliqueAnnotation.h; sourceTree = "<group>"; };
 		A3C5C31C138A9A9D00FF413F /* CliqueAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CliqueAnnotation.m; sourceTree = "<group>"; };
+		A3C5C334138BD5E500FF413F /* Clique.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clique.h; sourceTree = "<group>"; };
+		A3C5C335138BD5E600FF413F /* Clique.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clique.m; sourceTree = "<group>"; };
+		A3C5C347138BE0A200FF413F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A3D56B05137D789B0081A0AE /* CrumbDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbDataSource.h; sourceTree = "<group>"; };
 		A3D56B06137D789B0081A0AE /* CrumbDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbDataSource.m; sourceTree = "<group>"; };
 		A3D56B08137D78E80081A0AE /* CrumbDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbDataModel.h; sourceTree = "<group>"; };
@@ -311,6 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C5C348138BE0A300FF413F /* CoreLocation.framework in Frameworks */,
 				A3C5C2E81386B18A00FF413F /* MapKit.framework in Frameworks */,
 				A3C5C2E31386AE3700FF413F /* Security.framework in Frameworks */,
 				3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */,
@@ -406,6 +412,7 @@
 		A31D518413705C720094D3D3 = {
 			isa = PBXGroup;
 			children = (
+				A3C5C347138BE0A200FF413F /* CoreLocation.framework */,
 				A3C5C2E71386B18800FF413F /* MapKit.framework */,
 				A3C5C2E21386AE3600FF413F /* Security.framework */,
 				A31D519913705C720094D3D3 /* JuicyCrumb */,
@@ -472,8 +479,6 @@
 				A3C5C2E51386B0F400FF413F /* CliqueMapViewController.m */,
 				A3C5C31B138A9A9200FF413F /* CliqueAnnotation.h */,
 				A3C5C31C138A9A9D00FF413F /* CliqueAnnotation.m */,
-				A3C5C29A1386AABD00FF413F /* KeychainManager.h */,
-				A3C5C29B1386AABF00FF413F /* KeychainManager.m */,
 				A31D51A513705C720094D3D3 /* iPhone */,
 				A31D51AC13705C730094D3D3 /* iPad */,
 				A31D519A13705C720094D3D3 /* Supporting Files */,
@@ -576,6 +581,8 @@
 				A3BE91411371889C004F6E8B /* Crumb.m */,
 				A3E7FEBF13797426003FFE37 /* Response.h */,
 				A3E7FEC013797426003FFE37 /* Response.m */,
+				A3C5C334138BD5E500FF413F /* Clique.h */,
+				A3C5C335138BD5E600FF413F /* Clique.m */,
 			);
 			name = DataModels;
 			sourceTree = "<group>";
@@ -585,6 +592,8 @@
 			children = (
 				A3D56B2513813D390081A0AE /* NetworkManager.h */,
 				A3D56B2613813D390081A0AE /* NetworkManager.m */,
+				A3C5C29A1386AABD00FF413F /* KeychainManager.h */,
+				A3C5C29B1386AABF00FF413F /* KeychainManager.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -863,6 +872,7 @@
 				A3C5C29D1386AAC100FF413F /* KeychainManager.m in Sources */,
 				A3C5C2E61386B0F900FF413F /* CliqueMapViewController.m in Sources */,
 				A3C5C31D138A9AE300FF413F /* CliqueAnnotation.m in Sources */,
+				A3C5C336138BD5E800FF413F /* Clique.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

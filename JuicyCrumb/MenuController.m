@@ -83,7 +83,7 @@
     self.tabBarItem = [[[UITabBarItem alloc] initWithTitle:self.title image:image tag:0] autorelease];
     
     self.navigationItem.rightBarButtonItem =
-    [[[UIBarButtonItem alloc] initWithTitle:@"Order" style:UIBarButtonItemStyleBordered
+    [[[UIBarButtonItem alloc] initWithTitle:@"Send a Crumb" style:UIBarButtonItemStyleBordered
                                      target:@"tt://order?waitress=Betty&ref=toolbar"
                                      action:@selector(openURLFromButton:)] autorelease];
  
