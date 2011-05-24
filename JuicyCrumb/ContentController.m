@@ -22,7 +22,17 @@
         self.text = [NSString stringWithFormat:@"Hello - would you like to send something?"];
         
         self.title = @"Send a crumb";
+        
        
+         TTView* aView = [[[TTView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,100)] autorelease];
+         UIColor* black = RGBCOLOR(158, 163, 172);
+        
+        aView.style = [TTShapeStyle styleWithShape:[TTSpeechBubbleShape shapeWithRadius:5 pointLocation:290
+                                                                             pointAngle:270
+                                                                              pointSize:CGSizeMake(20,10)] next:
+                       [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
+                        [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]];
+        
         /*self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                    initWithTitle:@"Order" style:UIBarButtonItemStyleDone
                                                    target:@"tt://order/confirm" action:@selector(openURL)] autorelease];*/
@@ -31,6 +41,7 @@
                                                   initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered
                                                   target:self action:@selector(dismiss)] autorelease];
         
+        [self.view addSubview:aView];
         //TTDINFO(@"ORDER REFERRED FROM %@", [query objectForKey:@"ref"]);
     }
     return self;
