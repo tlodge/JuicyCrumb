@@ -33,6 +33,8 @@
                        [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
                         [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]];
         
+        UITextView *aTextView = [[UITextView alloc] initWithFrame:CGRectMake(2,2,self.view.frame.size.width-15,85)];
+        aTextView.text = @"dhsasdasdsad";
         /*self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                    initWithTitle:@"Order" style:UIBarButtonItemStyleDone
                                                    target:@"tt://order/confirm" action:@selector(openURL)] autorelease];*/
@@ -41,6 +43,7 @@
                                                   initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered
                                                   target:self action:@selector(dismiss)] autorelease];
         
+        [aView addSubview:aTextView];
         [self.view addSubview:aView];
         //TTDINFO(@"ORDER REFERRED FROM %@", [query objectForKey:@"ref"]);
     }
