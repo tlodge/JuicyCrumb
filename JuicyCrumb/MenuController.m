@@ -84,7 +84,8 @@
     
     self.navigationItem.rightBarButtonItem =
     [[[UIBarButtonItem alloc] initWithTitle:@"Send a Crumb" style:UIBarButtonItemStyleBordered
-                                     target:@"tt://order?waitress=Betty&ref=toolbar"
+                                     //target:@"tt://order?waitress=Betty&ref=toolbar"
+                                     target:@"tt://send?cliqueid=langbourne"
                                      //target:@"tt://nib/LoginView/LoginViewController"
                                      action:@selector(openURLFromButton:)] autorelease];
  

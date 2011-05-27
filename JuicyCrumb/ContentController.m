@@ -19,12 +19,13 @@
 - (id)initWithWaitress:(NSString*)waitress query:(NSDictionary*)query {
     if (self = [super init]) {
         self.content = waitress;
-        self.text = [NSString stringWithFormat:@"Hello - would you like to send something?"];
+        self.text = [NSString stringWithFormat:@"What do you want to say?"];
         
         self.title = @"Send a crumb";
         
-       
-         TTView* aView = [[[TTView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,100)] autorelease];
+        int PADDINGX = 10;
+        
+         TTView* aView = [[[TTView alloc] initWithFrame:CGRectMake(PADDINGX,50,self.view.frame.size.width-(2*PADDINGX),100)] autorelease];
          UIColor* black = RGBCOLOR(158, 163, 172);
         
         aView.style = [TTShapeStyle styleWithShape:[TTSpeechBubbleShape shapeWithRadius:5 pointLocation:290
@@ -33,18 +34,32 @@
                        [TTSolidFillStyle styleWithColor:[UIColor whiteColor] next:
                         [TTSolidBorderStyle styleWithColor:black width:1 next:nil]]];
         
-        UITextView *aTextView = [[UITextView alloc] initWithFrame:CGRectMake(2,2,self.view.frame.size.width-15,85)];
+        UITextView *aTextView = [[UITextView alloc] initWithFrame:CGRectMake(2,2,self.view.frame.size.width-(15 + (2*PADDINGX)) ,85)];
         aTextView.text = @"dhsasdasdsad";
-        /*self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
-                                                   initWithTitle:@"Order" style:UIBarButtonItemStyleDone
-                                                   target:@"tt://order/confirm" action:@selector(openURL)] autorelease];*/
+      
+        
         
         self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
                                                   initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered
                                                   target:self action:@selector(dismiss)] autorelease];
         
+        
+        /*
+        
+        NSString *kText = @"Who do you want to send it to?";
+       TTStyledTextLabel* label1 = [[[TTStyledTextLabel alloc] initWithFrame:CGRectMake(PADDINGX, 200, 100,100)] autorelease];
+        
+        label1.font = [UIFont systemFontOfSize:17];
+        label1.text = [TTStyledText textFromXHTML:kText lineBreaks:YES URLs:YES];
+        label1.contentInset = UIEdgeInsetsMake(10, 10, 10, 10);
+         [self.view addSubview:label1];
+         [label1 release]*/
+       
+        
         [aView addSubview:aTextView];
+        
         [self.view addSubview:aView];
+       ;
         //TTDINFO(@"ORDER REFERRED FROM %@", [query objectForKey:@"ref"]);
     }
     return self;

@@ -12,7 +12,8 @@
 #import "ContentController.h"
 #import "CrumbDetailController.h"
 #import "CliqueMapViewController.h"
-
+#import "CrumbSendController.h"
+#import "CrumbSendCliqueController.h";
 @implementation JuicyCrumbAppDelegate
 
 
@@ -45,6 +46,10 @@
     [map from:@"tt://order/food" toViewController:[TTPostController class]];
     
     [map from:@"tt://order?waitress=(initWithWaitress:)" toModalViewController:[ContentController class]];
+    
+    [map from:@"tt://send?cliqueid=(initWithClique:)" toModalViewController:[CrumbSendController class]];
+    
+    [map from:@"tt://send/clique" toViewController:[CrumbSendCliqueController class]];
     
     [map from:@"tt://order/(loadFromNib:)/(withClass:)" toModalViewController:self];
     
