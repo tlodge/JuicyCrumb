@@ -17,8 +17,11 @@
 
 - (id)initWithMenu:(NSString*)crumbId {
     if (self = [super init]) {
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+                                                   initWithTitle:@"Respond!" style:UIBarButtonItemStyleDone
+                                                   target:@"tt://order/food" action:@selector(openURL)] autorelease];
+
         
-        //tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight);
         CGRect aframe = self.tableView.frame;
         aframe.origin.y += 150;
         aframe.size.height -= 150;
@@ -32,17 +35,10 @@
         question.textAlignment =  UITextAlignmentCenter;
         question.backgroundColor = [UIColor clearColor];
         question.font = [UIFont boldSystemFontOfSize:20];
-        question.text = [NSString stringWithFormat:@"\"%@\"", @"This is something that I need to know"];
+        question.text = [NSString stringWithFormat:@"\"%@\"", @"This is something that I need to know.  Where are my sunglasses.  I'm sure I had them"];
         [myView addSubview:question];
         [question release];
-        
-        UIButton* button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button setTitle:@"Respond" forState:UIControlStateNormal];
-        [button addTarget:@"tt://order/food" action:@selector(openURLFromButton:)
-         forControlEvents:UIControlEventTouchUpInside];
-        [button sizeToFit];
-        button.frame = CGRectMake(20, 95, thebounds.size.width - 40, 50);
-        [myView addSubview:button];
+       
         
       
         

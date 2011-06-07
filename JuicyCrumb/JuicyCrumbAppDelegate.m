@@ -43,7 +43,7 @@
     
     [map from:@"tt://detail/(initWithMenu:)" toSharedViewController:[CrumbDetailController class]];
     
-    [map from:@"tt://order/food" toViewController:[TTPostController class]];
+    [map from:@"tt://order/food" toModalViewController:[TTPostController class]];
     
     [map from:@"tt://order?waitress=(initWithWaitress:)" toModalViewController:[ContentController class]];
     

@@ -89,12 +89,7 @@
         
         [self.view addSubview:_sendToTabBar];
         
-        /*TTTabItem* item = [_sendToTabBar.tabItems objectAtIndex:0];
-        item.badgeNumber = 2;
-        item = [_sendToTabBar.tabItems objectAtIndex:1];
-        item.badgeNumber = 30;*/
-
-        
+            
         self.sendToView = [[UIView alloc] initWithFrame:CGRectMake(PADDINGX, 225, self.view.frame.size.width - (2*PADDINGX), 100)];
         [self.sendToView setBackgroundColor:[UIColor greenColor]];
         [self.view addSubview: _sendToView];
