@@ -16,6 +16,8 @@
 		320CC833B8AF0ACFD35E6225 /* libThree20Style.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320CC833B8AF0ACFD35E6224 /* libThree20Style.a */; };
 		320D7DCCE32703ACAB9A45E5 /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320D7DCCE32703ACAB9A45E4 /* libThree20.a */; };
 		320F2C48872C2E2C4DF86205 /* libThree20UI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320F2C48872C2E2C4DF86204 /* libThree20UI.a */; };
+		A3005E7F13A11AE1007876EB /* CreateCliqueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3005E7E13A11AD3007876EB /* CreateCliqueViewController.m */; };
+		A3005E8A13A121EE007876EB /* JoinCliqueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3005E8913A121E8007876EB /* JoinCliqueViewController.m */; };
 		A31D519413705C720094D3D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D519313705C720094D3D3 /* UIKit.framework */; };
 		A31D519613705C720094D3D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D519513705C720094D3D3 /* Foundation.framework */; };
 		A31D519813705C720094D3D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D519713705C720094D3D3 /* CoreGraphics.framework */; };
@@ -235,6 +237,10 @@
 		320CC833B8AF0ACFD35E6220 /* Three20Style.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20Style.xcodeproj; path = ../../three20/src/Three20Style/Three20Style.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320D7DCCE32703ACAB9A45E0 /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../../three20/src/Three20/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320F2C48872C2E2C4DF86200 /* Three20UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UI.xcodeproj; path = ../../three20/src/Three20UI/Three20UI.xcodeproj; sourceTree = SOURCE_ROOT; };
+		A3005E7D13A11AD1007876EB /* CreateCliqueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCliqueViewController.h; sourceTree = "<group>"; };
+		A3005E7E13A11AD3007876EB /* CreateCliqueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCliqueViewController.m; sourceTree = "<group>"; };
+		A3005E8813A121E4007876EB /* JoinCliqueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinCliqueViewController.h; sourceTree = "<group>"; };
+		A3005E8913A121E8007876EB /* JoinCliqueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinCliqueViewController.m; sourceTree = "<group>"; };
 		A31D518F13705C720094D3D3 /* JuicyCrumb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JuicyCrumb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31D519313705C720094D3D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A31D519513705C720094D3D3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -492,6 +498,10 @@
 				A3C5C2E51386B0F400FF413F /* CliqueMapViewController.m */,
 				A3C5C31B138A9A9200FF413F /* CliqueAnnotation.h */,
 				A3C5C31C138A9A9D00FF413F /* CliqueAnnotation.m */,
+				A3005E7D13A11AD1007876EB /* CreateCliqueViewController.h */,
+				A3005E7E13A11AD3007876EB /* CreateCliqueViewController.m */,
+				A3005E8813A121E4007876EB /* JoinCliqueViewController.h */,
+				A3005E8913A121E8007876EB /* JoinCliqueViewController.m */,
 				A31D51A513705C720094D3D3 /* iPhone */,
 				A31D51AC13705C730094D3D3 /* iPad */,
 				A31D519A13705C720094D3D3 /* Supporting Files */,
@@ -921,6 +931,8 @@
 				A3889D79138FE06000AD2E8B /* CrumbSendCliqueController.m in Sources */,
 				A3889D7C138FE0D100AD2E8B /* CrumbSendAllController.m in Sources */,
 				A3889D96138FF5B400AD2E8B /* ButtonStyleSheet.m in Sources */,
+				A3005E7F13A11AE1007876EB /* CreateCliqueViewController.m in Sources */,
+				A3005E8A13A121EE007876EB /* JoinCliqueViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

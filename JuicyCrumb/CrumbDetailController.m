@@ -38,10 +38,6 @@
         question.text = [NSString stringWithFormat:@"\"%@\"", @"This is something that I need to know.  Where are my sunglasses.  I'm sure I had them"];
         [myView addSubview:question];
         [question release];
-       
-        
-      
-        
         
         [myView setBackgroundColor:[UIColor greenColor]];
         self.headerView = myView;

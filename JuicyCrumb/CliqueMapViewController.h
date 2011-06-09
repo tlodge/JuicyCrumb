@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface CliqueMapViewController : UIViewController <MKMapViewDelegate> {
+@interface CliqueMapViewController : TTViewController <MKMapViewDelegate> {
     MKMapView *mapView;
     NSMutableArray *mapAnnotations;
 }

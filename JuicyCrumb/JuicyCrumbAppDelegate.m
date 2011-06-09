@@ -14,6 +14,8 @@
 #import "CliqueMapViewController.h"
 #import "CrumbSendController.h"
 #import "CrumbSendCliqueController.h";
+#import "CreateCliqueViewController.h";
+#import "JoinCliqueViewController.h";
 @implementation JuicyCrumbAppDelegate
 
 
@@ -53,6 +55,10 @@
     
     [map from:@"tt://order/(loadFromNib:)/(withClass:)" toModalViewController:self];
     
+    [map from:@"tt://clique/create" toModalViewController:[CreateCliqueViewController class]];
+    
+    [map from:@"tt://clique/join?cliqueId=(initWithClique:)" toModalViewController:[JoinCliqueViewController class]];
+
     if (![navigator restoreViewControllers]) {
         // This is the first launch, so we just start with the tab bar
         [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://tabBar"]];

@@ -27,6 +27,9 @@
     if (self) {
         // Custom initialization
         self.title = @"Cliques";
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+                                                   initWithTitle:@"Create New" style:UIBarButtonItemStyleDone
+                                                   target:@"tt://clique/create" action:@selector(openURL)] autorelease];
     }
     return self;
 }
@@ -152,9 +155,17 @@
         //  - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control;
         //
         UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        [rightButton addTarget:self
+        
+        [rightButton addTarget:@"tt://clique/join?cliqueid=langbourne" action:@selector(openURLFromButton:)
+         forControlEvents:UIControlEventTouchUpInside];
+        
+        /*[rightButton addTarget:self
                         action:@selector(showDetails:)
-              forControlEvents:UIControlEventTouchUpInside];
+              forControlEvents:UIControlEventTouchUpInside];*/
+        
+        
+        
+        
         customPinView.rightCalloutAccessoryView = rightButton;
         
         return customPinView;
