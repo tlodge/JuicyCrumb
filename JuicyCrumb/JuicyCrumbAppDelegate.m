@@ -55,7 +55,9 @@
     
     [map from:@"tt://order/(loadFromNib:)/(withClass:)" toModalViewController:self];
     
-    [map from:@"tt://clique/create" toModalViewController:[CreateCliqueViewController class]];
+    [map from:@"tt://clique/create/map" toModalViewController:[CreateCliqueMapViewController class]];
+    
+    [map from:@"tt://clique/create/details?coords=(initWithCoords:)" toModalViewController:[CreateCliqueDetailsViewController class]];
     
     [map from:@"tt://clique/join?cliqueId=(initWithClique:)" toModalViewController:[JoinCliqueViewController class]];
 

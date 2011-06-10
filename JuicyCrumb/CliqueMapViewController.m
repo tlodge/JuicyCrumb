@@ -29,7 +29,7 @@
         self.title = @"Cliques";
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                    initWithTitle:@"Create New" style:UIBarButtonItemStyleDone
-                                                   target:@"tt://clique/create" action:@selector(openURL)] autorelease];
+                                                   target:@"tt://clique/create/map" action:@selector(openURL)] autorelease];
     }
     return self;
 }
@@ -65,7 +65,10 @@
      
     [super viewDidLoad];
    
-
+    self.title = @"Cliques";
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+                                               initWithTitle:@"Create New" style:UIBarButtonItemStyleDone
+                                               target:@"tt://clique/create" action:@selector(openURL)] autorelease];
    
     
     [self addSomeDevelopments];
