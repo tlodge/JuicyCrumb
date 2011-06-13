@@ -237,7 +237,7 @@
 		320CC833B8AF0ACFD35E6220 /* Three20Style.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20Style.xcodeproj; path = ../../three20/src/Three20Style/Three20Style.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320D7DCCE32703ACAB9A45E0 /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../../three20/src/Three20/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320F2C48872C2E2C4DF86200 /* Three20UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UI.xcodeproj; path = ../../three20/src/Three20UI/Three20UI.xcodeproj; sourceTree = SOURCE_ROOT; };
-		A3005E7D13A11AD1007876EB /* CreateCliqueMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CreateCliqueMapViewController.h; sourceTree = "<group>"; };
+		A3005E7D13A11AD1007876EB /* CreateCliqueMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCliqueMapViewController.h; sourceTree = "<group>"; };
 		A3005E7E13A11AD3007876EB /* CreateCliqueMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCliqueMapViewController.m; sourceTree = "<group>"; };
 		A3005E8813A121E4007876EB /* JoinCliqueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinCliqueViewController.h; sourceTree = "<group>"; };
 		A3005E8913A121E8007876EB /* JoinCliqueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinCliqueViewController.m; sourceTree = "<group>"; };
