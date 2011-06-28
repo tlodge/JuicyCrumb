@@ -10,7 +10,7 @@
 
 @protocol LoginViewControllerDelegate;
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate> {
+@interface LoginViewController : TTViewController <UITextFieldDelegate> {
 	id <LoginViewControllerDelegate> delegate;
 	UILabel *cliqueName;
 	UILabel *userName;

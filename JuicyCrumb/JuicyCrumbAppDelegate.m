@@ -13,9 +13,12 @@
 #import "CrumbDetailController.h"
 #import "CliqueMapViewController.h"
 #import "CrumbSendController.h"
-#import "CrumbSendCliqueController.h";
-#import "CreateCliqueViewController.h";
-#import "JoinCliqueViewController.h";
+#import "LoginViewController.h"
+#import "CrumbSendCliqueController.h"
+#import "CreateCliqueMapViewController.h"
+#import "CreateCliqueDetailsViewController.h"
+#import "JoinCliqueViewController.h"
+
 @implementation JuicyCrumbAppDelegate
 
 
@@ -41,7 +44,7 @@
     
     [map from:@"tt://response/(initWithResponse:)" toViewController:[ContentController class]];
     
-    [map from:@"tt://cliques" toViewController:[CliqueMapViewController class]];
+    [map from:@"tt://cliques" toSharedViewController:[CliqueMapViewController class]];
     
     [map from:@"tt://detail/(initWithMenu:)" toSharedViewController:[CrumbDetailController class]];
     
@@ -57,10 +60,58 @@
     
     [map from:@"tt://clique/create/map" toModalViewController:[CreateCliqueMapViewController class]];
     
-    [map from:@"tt://clique/create/details?coords=(initWithCoords:)" toModalViewController:[CreateCliqueDetailsViewController class]];
+    [map from:@"tt://clique/create/(initWithLat:)/(andLng:)" toModalViewController:[CreateCliqueDetailsViewController class]];
     
     [map from:@"tt://clique/join?cliqueId=(initWithClique:)" toModalViewController:[JoinCliqueViewController class]];
 
+    
+    
+    /*
+     * Stuff for clique creation
+     */
+    
+    [map from: @"tt://clique/create/development/name"
+    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    toViewController: [LoginViewController class]
+    selector: nil
+    transition: 0];
+    
+    [map from: @"tt://clique/create/structure/floors"
+    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"   
+    toViewController: [LoginViewController class]
+    selector: nil
+    transition: 0];
+    
+    [map from: @"tt://clique/create/structure/blocks"
+    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    toViewController: [LoginViewController class]
+    selector: nil
+    transition: 0];
+    
+    [map from: @"tt://clique/create/development/name"
+    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    toViewController: [LoginViewController class]
+    selector: nil
+    transition: 0];
+    
+    [map from: @"tt://clique/create/development/joining/privacy"
+    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    toViewController: [LoginViewController class]
+    selector: nil
+    transition: 0];
+   
+    [map from: @"tt://clique/create/development/joining/privacy"
+    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    toViewController: [LoginViewController class]
+    selector: nil
+    transition: 0];
+    
+    [map from:  @"tt://clique/create/development/joining/passwords"
+    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    toViewController: [LoginViewController class]
+    selector: nil
+    transition: 0];
+           
     if (![navigator restoreViewControllers]) {
         // This is the first launch, so we just start with the tab bar
         [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://tabBar"]];

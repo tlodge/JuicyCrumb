@@ -163,7 +163,7 @@ static NetworkManager *sharedManagerInstance = nil;
 
 -(NSMutableArray *) allCrumbsSince:(NSDate *) adate{
     
-    NSLog(@"getting all crumbs since %@", [df stringFromDate:adate]);
+   // NSLog(@"getting all crumbs since %@", [df stringFromDate:adate]);
     if (adate == nil){
         return self.scrumbs;
     }else{
@@ -184,7 +184,7 @@ static NetworkManager *sharedManagerInstance = nil;
 
 -(NSMutableArray *) allResponsesSince:(NSDate *) adate forCrumb:(NSString *) crumbid{
     
-     NSLog(@"getting all responses to crumb %@ since %@", crumbid, [df stringFromDate:adate]);
+    // NSLog(@"getting all responses to crumb %@ since %@", crumbid, [df stringFromDate:adate]);
     
     //NSArray *myresponses = [responses objectForKey:crumbid];
     

@@ -34,7 +34,9 @@
 		A31D51C313705C730094D3D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A31D51C113705C730094D3D3 /* InfoPlist.strings */; };
 		A31D51C613705C730094D3D3 /* JuicyCrumbTests.h in Resources */ = {isa = PBXBuildFile; fileRef = A31D51C513705C730094D3D3 /* JuicyCrumbTests.h */; };
 		A31D51C813705C730094D3D3 /* JuicyCrumbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D51C713705C730094D3D3 /* JuicyCrumbTests.m */; };
+		A379FFE113A664C8004FDBB9 /* CreateCliqueDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A379FFE013A664C8004FDBB9 /* CreateCliqueDetailsViewController.m */; };
 		A37C90D413706240005CB995 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A37C90D313706240005CB995 /* MenuController.m */; };
+		A386E0A813B4F0890024DBB7 /* MapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A386E0A713B4F0890024DBB7 /* MapOverlayView.m */; };
 		A3889D75138FCE1F00AD2E8B /* CrumbSendController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3889D74138FCE1F00AD2E8B /* CrumbSendController.m */; };
 		A3889D79138FE06000AD2E8B /* CrumbSendCliqueController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3889D78138FE05F00AD2E8B /* CrumbSendCliqueController.m */; };
 		A3889D7C138FE0D100AD2E8B /* CrumbSendAllController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3889D7B138FE0D100AD2E8B /* CrumbSendAllController.m */; };
@@ -68,6 +70,14 @@
 		A3E7FEBE13796A71003FFE37 /* ResponseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FEBD13796A6C003FFE37 /* ResponseDataSource.m */; };
 		A3E7FEC113797426003FFE37 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FEC013797426003FFE37 /* Response.m */; };
 		A3F2B51D13705EA000F35AAC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F2B51C13705EA000F35AAC /* TabBarController.m */; };
+		A3FB2BA813B9FF0C0010CCF1 /* DDAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB2BA513B9FF0C0010CCF1 /* DDAnnotation.m */; };
+		A3FB2BA913B9FF0C0010CCF1 /* DDAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB2BA713B9FF0C0010CCF1 /* DDAnnotationView.m */; };
+		A3FB2BB013B9FF260010CCF1 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FB2BAA13B9FF260010CCF1 /* Pin.png */; };
+		A3FB2BB113B9FF260010CCF1 /* PinDown1.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FB2BAB13B9FF260010CCF1 /* PinDown1.png */; };
+		A3FB2BB213B9FF260010CCF1 /* PinDown2.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FB2BAC13B9FF260010CCF1 /* PinDown2.png */; };
+		A3FB2BB313B9FF260010CCF1 /* PinDown3.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FB2BAD13B9FF260010CCF1 /* PinDown3.png */; };
+		A3FB2BB413B9FF260010CCF1 /* PinFloating.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FB2BAE13B9FF260010CCF1 /* PinFloating.png */; };
+		A3FB2BB513B9FF260010CCF1 /* PinShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FB2BAF13B9FF260010CCF1 /* PinShadow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,8 +273,12 @@
 		A31D51C413705C730094D3D3 /* JuicyCrumbTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JuicyCrumbTests-Prefix.pch"; sourceTree = "<group>"; };
 		A31D51C513705C730094D3D3 /* JuicyCrumbTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JuicyCrumbTests.h; sourceTree = "<group>"; };
 		A31D51C713705C730094D3D3 /* JuicyCrumbTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JuicyCrumbTests.m; sourceTree = "<group>"; };
+		A379FFDF13A664C7004FDBB9 /* CreateCliqueDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCliqueDetailsViewController.h; sourceTree = "<group>"; };
+		A379FFE013A664C8004FDBB9 /* CreateCliqueDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCliqueDetailsViewController.m; sourceTree = "<group>"; };
 		A37C90D21370623F005CB995 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		A37C90D313706240005CB995 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
+		A386E0A613B4F0890024DBB7 /* MapOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapOverlayView.h; sourceTree = "<group>"; };
+		A386E0A713B4F0890024DBB7 /* MapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapOverlayView.m; sourceTree = "<group>"; };
 		A3889D73138FCE1E00AD2E8B /* CrumbSendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbSendController.h; sourceTree = "<group>"; };
 		A3889D74138FCE1F00AD2E8B /* CrumbSendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbSendController.m; sourceTree = "<group>"; };
 		A3889D77138FE05F00AD2E8B /* CrumbSendCliqueController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbSendCliqueController.h; sourceTree = "<group>"; };
@@ -327,6 +341,16 @@
 		A3E7FEC013797426003FFE37 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
 		A3F2B51B13705EA000F35AAC /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		A3F2B51C13705EA000F35AAC /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		A3FB2BA413B9FF0C0010CCF1 /* DDAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAnnotation.h; sourceTree = "<group>"; };
+		A3FB2BA513B9FF0C0010CCF1 /* DDAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAnnotation.m; sourceTree = "<group>"; };
+		A3FB2BA613B9FF0C0010CCF1 /* DDAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAnnotationView.h; sourceTree = "<group>"; };
+		A3FB2BA713B9FF0C0010CCF1 /* DDAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAnnotationView.m; sourceTree = "<group>"; };
+		A3FB2BAA13B9FF260010CCF1 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pin.png; sourceTree = "<group>"; };
+		A3FB2BAB13B9FF260010CCF1 /* PinDown1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PinDown1.png; sourceTree = "<group>"; };
+		A3FB2BAC13B9FF260010CCF1 /* PinDown2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PinDown2.png; sourceTree = "<group>"; };
+		A3FB2BAD13B9FF260010CCF1 /* PinDown3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PinDown3.png; sourceTree = "<group>"; };
+		A3FB2BAE13B9FF260010CCF1 /* PinFloating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PinFloating.png; sourceTree = "<group>"; };
+		A3FB2BAF13B9FF260010CCF1 /* PinShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PinShadow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -496,10 +520,14 @@
 				A3C5C2991386AAB800FF413F /* LoginViewController.m */,
 				A3C5C2E41386B0F000FF413F /* CliqueMapViewController.h */,
 				A3C5C2E51386B0F400FF413F /* CliqueMapViewController.m */,
+				A386E0A613B4F0890024DBB7 /* MapOverlayView.h */,
+				A386E0A713B4F0890024DBB7 /* MapOverlayView.m */,
 				A3C5C31B138A9A9200FF413F /* CliqueAnnotation.h */,
 				A3C5C31C138A9A9D00FF413F /* CliqueAnnotation.m */,
 				A3005E7D13A11AD1007876EB /* CreateCliqueMapViewController.h */,
 				A3005E7E13A11AD3007876EB /* CreateCliqueMapViewController.m */,
+				A379FFDF13A664C7004FDBB9 /* CreateCliqueDetailsViewController.h */,
+				A379FFE013A664C8004FDBB9 /* CreateCliqueDetailsViewController.m */,
 				A3005E8813A121E4007876EB /* JoinCliqueViewController.h */,
 				A3005E8913A121E8007876EB /* JoinCliqueViewController.m */,
 				A31D51A513705C720094D3D3 /* iPhone */,
@@ -512,6 +540,7 @@
 		A31D519A13705C720094D3D3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A3FB2BA313B9FEE30010CCF1 /* Map */,
 				A3889CAF138E998A00AD2E8B /* images */,
 				A3BE913A137186A6004F6E8B /* data.json */,
 				320B6C86F11D9990244A9730 /* Three20.bundle */,
@@ -567,6 +596,12 @@
 		A3889CAF138E998A00AD2E8B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3FB2BAA13B9FF260010CCF1 /* Pin.png */,
+				A3FB2BAB13B9FF260010CCF1 /* PinDown1.png */,
+				A3FB2BAC13B9FF260010CCF1 /* PinDown2.png */,
+				A3FB2BAD13B9FF260010CCF1 /* PinDown3.png */,
+				A3FB2BAE13B9FF260010CCF1 /* PinFloating.png */,
+				A3FB2BAF13B9FF260010CCF1 /* PinShadow.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -650,6 +685,17 @@
 				A3C5C29B1386AABF00FF413F /* KeychainManager.m */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		A3FB2BA313B9FEE30010CCF1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				A3FB2BA413B9FF0C0010CCF1 /* DDAnnotation.h */,
+				A3FB2BA513B9FF0C0010CCF1 /* DDAnnotation.m */,
+				A3FB2BA613B9FF0C0010CCF1 /* DDAnnotationView.h */,
+				A3FB2BA713B9FF0C0010CCF1 /* DDAnnotationView.m */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -863,6 +909,12 @@
 				A31D51B213705C730094D3D3 /* MainWindow_iPad.xib in Resources */,
 				A3BE913B137186A6004F6E8B /* data.json in Resources */,
 				A3C5C29F1386AB4500FF413F /* LoginView.xib in Resources */,
+				A3FB2BB013B9FF260010CCF1 /* Pin.png in Resources */,
+				A3FB2BB113B9FF260010CCF1 /* PinDown1.png in Resources */,
+				A3FB2BB213B9FF260010CCF1 /* PinDown2.png in Resources */,
+				A3FB2BB313B9FF260010CCF1 /* PinDown3.png in Resources */,
+				A3FB2BB413B9FF260010CCF1 /* PinFloating.png in Resources */,
+				A3FB2BB513B9FF260010CCF1 /* PinShadow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -933,6 +985,10 @@
 				A3889D96138FF5B400AD2E8B /* ButtonStyleSheet.m in Sources */,
 				A3005E7F13A11AE1007876EB /* CreateCliqueMapViewController.m in Sources */,
 				A3005E8A13A121EE007876EB /* JoinCliqueViewController.m in Sources */,
+				A379FFE113A664C8004FDBB9 /* CreateCliqueDetailsViewController.m in Sources */,
+				A386E0A813B4F0890024DBB7 /* MapOverlayView.m in Sources */,
+				A3FB2BA813B9FF0C0010CCF1 /* DDAnnotation.m in Sources */,
+				A3FB2BA913B9FF0C0010CCF1 /* DDAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

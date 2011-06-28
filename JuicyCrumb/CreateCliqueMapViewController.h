@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface CreateCliqueViewController : TTViewController <MKMapViewDelegate> {
+@interface CreateCliqueMapViewController : TTViewController <MKMapViewDelegate> {
     MKMapView *mapView;
     NSMutableArray *mapAnnotations;
+    float longitude;
+    float latitude;
 }
 
 @property(nonatomic, retain) NSMutableArray* mapAnnotations;
-
+@property(nonatomic, retain) MKMapView* mapView;
 
 @end

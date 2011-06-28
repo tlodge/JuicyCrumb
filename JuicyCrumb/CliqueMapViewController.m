@@ -10,6 +10,7 @@
 #import "CliqueAnnotation.h"
 #import "NetworkManager.h"
 #import "Clique.h"
+#import "MapOverlayView.h"
 
 @interface CliqueMapViewController() 
 
@@ -27,9 +28,16 @@
     if (self) {
         // Custom initialization
         self.title = @"Cliques";
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+        self.navigationItem.backBarButtonItem =
+        [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered
+                                         target:nil action:nil] autorelease];
+      /*  self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                    initWithTitle:@"Create New" style:UIBarButtonItemStyleDone
-                                                   target:@"tt://clique/create/map" action:@selector(openURL)] autorelease];
+                                                   target:@"tt://clique/create/map" action:@selector(openURL)] autorelease];*/
+        
+    /*    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+                                                   initWithTitle:@"Respond!" style:UIBarButtonItemStyleDone
+                                                   target:@"tt://order/food" action:@selector(openURL)] autorelease];*/
     }
     return self;
 }
@@ -68,14 +76,21 @@
     self.title = @"Cliques";
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                initWithTitle:@"Create New" style:UIBarButtonItemStyleDone
-                                               target:@"tt://clique/create" action:@selector(openURL)] autorelease];
+                                               target:@"tt://clique/create/map" action:@selector(openURL)] autorelease];
    
     
     [self addSomeDevelopments];
   
-    
     [self.view addSubview:mapView];
+
+    
+    
 }
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"in here...");
+}
+
 
 -(void) addSomeDevelopments{
     
@@ -135,6 +150,7 @@
     }
     
 }
+
 
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
 {

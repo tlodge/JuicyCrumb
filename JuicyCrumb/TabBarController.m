@@ -13,8 +13,9 @@
 
 - (void)viewDidLoad {
     [self setTabURLs:[NSArray arrayWithObjects:@"tt://menu/1",
+                       @"tt://cliques",
                       @"tt://menu/2",
-                      @"tt://cliques",
+                     
                       /*@"tt://nib/LoginView/LoginViewController",*/
                       nil]];
 }
