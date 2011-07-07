@@ -16,9 +16,14 @@
 // TTModelViewController
 
 - (void)createModel {
+    
+    UITextField* development = [[[UITextField alloc] init] autorelease];
+    development.placeholder = @"Your development's name";
+    development.font = TTSTYLEVAR(font);
+    
     self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
                        @"Development",
-                       [TTTableTextItem itemWithText:@"Name" URL:@"tt://clique/create/development/name"],
+                      development,
                        
                        @"Structure",
                        [TTTableTextItem itemWithText:@"Floors" URL:@"tt://clique/create/structure/floors"],
@@ -35,13 +40,13 @@
         self.tableViewStyle = UITableViewStyleGrouped;
         NSLog(@"---->>>>  nice - got here...%f %f",lat, lng);
         self.title = @"Clique's details";
-       self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
+       /*self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
                                                   initWithTitle:@"Back" style:UIBarButtonItemStyleBordered
-                                                  target:self action:@selector(dismiss)] autorelease];
+                                                  target:self action:@selector(dismiss)] autorelease];*/
         
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
-                                                  initWithTitle:@"Create!" style:UIBarButtonItemStyleBordered
-                                                  target:self action:@selector(create)] autorelease];
+                                                  initWithTitle:@"Next" style:UIBarButtonItemStyleBordered
+                                                  target:self action:@selector(next)] autorelease];
     }
     return self;
 }
@@ -50,8 +55,8 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (void)create {
-    NSLog(@"would create it here...");
+- (void)next {
+   TTOpenURL([NSString stringWithFormat:@"tt://user/details"]);
 }
 
 

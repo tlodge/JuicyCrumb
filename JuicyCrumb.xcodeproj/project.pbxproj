@@ -18,6 +18,12 @@
 		320F2C48872C2E2C4DF86205 /* libThree20UI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320F2C48872C2E2C4DF86204 /* libThree20UI.a */; };
 		A3005E7F13A11AE1007876EB /* CreateCliqueMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3005E7E13A11AD3007876EB /* CreateCliqueMapViewController.m */; };
 		A3005E8A13A121EE007876EB /* JoinCliqueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3005E8913A121E8007876EB /* JoinCliqueViewController.m */; };
+		A303B81E13C1A6A7004F4AD0 /* UserDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A303B81D13C1A6A6004F4AD0 /* UserDetailsViewController.m */; };
+		A303B8B513C4C784004F4AD0 /* CrumbTableSendController.m in Sources */ = {isa = PBXBuildFile; fileRef = A303B8B413C4C783004F4AD0 /* CrumbTableSendController.m */; };
+		A303B95913C5E4DB004F4AD0 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = A303B95813C5E4DB004F4AD0 /* left.png */; };
+		A303B95C13C5F66D004F4AD0 /* TableCheckItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A303B95B13C5F667004F4AD0 /* TableCheckItem.m */; };
+		A303B95F13C5F7FC004F4AD0 /* CheckmarkTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A303B95E13C5F7FA004F4AD0 /* CheckmarkTableCell.m */; };
+		A303B96213C5FA9E004F4AD0 /* CrumbSendDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A303B96113C5FA8B004F4AD0 /* CrumbSendDataSource.m */; };
 		A31D519413705C720094D3D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D519313705C720094D3D3 /* UIKit.framework */; };
 		A31D519613705C720094D3D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D519513705C720094D3D3 /* Foundation.framework */; };
 		A31D519813705C720094D3D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D519713705C720094D3D3 /* CoreGraphics.framework */; };
@@ -251,6 +257,17 @@
 		A3005E7E13A11AD3007876EB /* CreateCliqueMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCliqueMapViewController.m; sourceTree = "<group>"; };
 		A3005E8813A121E4007876EB /* JoinCliqueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinCliqueViewController.h; sourceTree = "<group>"; };
 		A3005E8913A121E8007876EB /* JoinCliqueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinCliqueViewController.m; sourceTree = "<group>"; };
+		A303B81C13C1A6A6004F4AD0 /* UserDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailsViewController.h; sourceTree = "<group>"; };
+		A303B81D13C1A6A6004F4AD0 /* UserDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailsViewController.m; sourceTree = "<group>"; };
+		A303B8B313C4C783004F4AD0 /* CrumbTableSendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbTableSendController.h; sourceTree = "<group>"; };
+		A303B8B413C4C783004F4AD0 /* CrumbTableSendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbTableSendController.m; sourceTree = "<group>"; };
+		A303B95813C5E4DB004F4AD0 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		A303B95A13C5F667004F4AD0 /* TableCheckItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCheckItem.h; sourceTree = "<group>"; };
+		A303B95B13C5F667004F4AD0 /* TableCheckItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCheckItem.m; sourceTree = "<group>"; };
+		A303B95D13C5F7F8004F4AD0 /* CheckmarkTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckmarkTableCell.h; sourceTree = "<group>"; };
+		A303B95E13C5F7FA004F4AD0 /* CheckmarkTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckmarkTableCell.m; sourceTree = "<group>"; };
+		A303B96013C5FA8A004F4AD0 /* CrumbSendDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbSendDataSource.h; sourceTree = "<group>"; };
+		A303B96113C5FA8B004F4AD0 /* CrumbSendDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbSendDataSource.m; sourceTree = "<group>"; };
 		A31D518F13705C720094D3D3 /* JuicyCrumb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JuicyCrumb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31D519313705C720094D3D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A31D519513705C720094D3D3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -528,6 +545,8 @@
 				A3005E7E13A11AD3007876EB /* CreateCliqueMapViewController.m */,
 				A379FFDF13A664C7004FDBB9 /* CreateCliqueDetailsViewController.h */,
 				A379FFE013A664C8004FDBB9 /* CreateCliqueDetailsViewController.m */,
+				A303B81C13C1A6A6004F4AD0 /* UserDetailsViewController.h */,
+				A303B81D13C1A6A6004F4AD0 /* UserDetailsViewController.m */,
 				A3005E8813A121E4007876EB /* JoinCliqueViewController.h */,
 				A3005E8913A121E8007876EB /* JoinCliqueViewController.m */,
 				A31D51A513705C720094D3D3 /* iPhone */,
@@ -596,6 +615,7 @@
 		A3889CAF138E998A00AD2E8B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A303B95813C5E4DB004F4AD0 /* left.png */,
 				A3FB2BAA13B9FF260010CCF1 /* Pin.png */,
 				A3FB2BAB13B9FF260010CCF1 /* PinDown1.png */,
 				A3FB2BAC13B9FF260010CCF1 /* PinDown2.png */,
@@ -615,6 +635,14 @@
 				A3889D78138FE05F00AD2E8B /* CrumbSendCliqueController.m */,
 				A3889D7A138FE0D100AD2E8B /* CrumbSendAllController.h */,
 				A3889D7B138FE0D100AD2E8B /* CrumbSendAllController.m */,
+				A303B8B313C4C783004F4AD0 /* CrumbTableSendController.h */,
+				A303B8B413C4C783004F4AD0 /* CrumbTableSendController.m */,
+				A303B95A13C5F667004F4AD0 /* TableCheckItem.h */,
+				A303B95B13C5F667004F4AD0 /* TableCheckItem.m */,
+				A303B95D13C5F7F8004F4AD0 /* CheckmarkTableCell.h */,
+				A303B95E13C5F7FA004F4AD0 /* CheckmarkTableCell.m */,
+				A303B96013C5FA8A004F4AD0 /* CrumbSendDataSource.h */,
+				A303B96113C5FA8B004F4AD0 /* CrumbSendDataSource.m */,
 			);
 			name = SendControllers;
 			sourceTree = "<group>";
@@ -915,6 +943,7 @@
 				A3FB2BB313B9FF260010CCF1 /* PinDown3.png in Resources */,
 				A3FB2BB413B9FF260010CCF1 /* PinFloating.png in Resources */,
 				A3FB2BB513B9FF260010CCF1 /* PinShadow.png in Resources */,
+				A303B95913C5E4DB004F4AD0 /* left.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -989,6 +1018,11 @@
 				A386E0A813B4F0890024DBB7 /* MapOverlayView.m in Sources */,
 				A3FB2BA813B9FF0C0010CCF1 /* DDAnnotation.m in Sources */,
 				A3FB2BA913B9FF0C0010CCF1 /* DDAnnotationView.m in Sources */,
+				A303B81E13C1A6A7004F4AD0 /* UserDetailsViewController.m in Sources */,
+				A303B8B513C4C784004F4AD0 /* CrumbTableSendController.m in Sources */,
+				A303B95C13C5F66D004F4AD0 /* TableCheckItem.m in Sources */,
+				A303B95F13C5F7FC004F4AD0 /* CheckmarkTableCell.m in Sources */,
+				A303B96213C5FA9E004F4AD0 /* CrumbSendDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

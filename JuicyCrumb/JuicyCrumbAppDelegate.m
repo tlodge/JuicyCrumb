@@ -12,12 +12,13 @@
 #import "ContentController.h"
 #import "CrumbDetailController.h"
 #import "CliqueMapViewController.h"
-#import "CrumbSendController.h"
+#import "CrumbTableSendController.h"
 #import "LoginViewController.h"
 #import "CrumbSendCliqueController.h"
 #import "CreateCliqueMapViewController.h"
 #import "CreateCliqueDetailsViewController.h"
 #import "JoinCliqueViewController.h"
+#import "UserDetailsViewController.h"
 
 @implementation JuicyCrumbAppDelegate
 
@@ -52,17 +53,19 @@
     
     [map from:@"tt://order?waitress=(initWithWaitress:)" toModalViewController:[ContentController class]];
     
-    [map from:@"tt://send?cliqueid=(initWithClique:)" toModalViewController:[CrumbSendController class]];
+    [map from:@"tt://send?cliqueid=(initWithClique:)" toModalViewController:[CrumbTableSendController class]];
     
     [map from:@"tt://send/clique" toViewController:[CrumbSendCliqueController class]];
     
     [map from:@"tt://order/(loadFromNib:)/(withClass:)" toModalViewController:self];
     
-    [map from:@"tt://clique/create/map" toModalViewController:[CreateCliqueMapViewController class]];
+    [map from:@"tt://clique/create/map" toViewController:[CreateCliqueMapViewController class]];
     
-    [map from:@"tt://clique/create/(initWithLat:)/(andLng:)" toModalViewController:[CreateCliqueDetailsViewController class]];
+    [map from:@"tt://clique/create/(initWithLat:)/(andLng:)" toViewController:[CreateCliqueDetailsViewController class]];
     
-    [map from:@"tt://clique/join?cliqueId=(initWithClique:)" toModalViewController:[JoinCliqueViewController class]];
+    [map from:@"tt://clique/join?cliqueId=(initWithClique:)" toViewController:[JoinCliqueViewController class]];
+
+    [map from:@"tt://user/details" toViewController:[UserDetailsViewController class]];
 
     
     
@@ -71,43 +74,44 @@
      */
     
     [map from: @"tt://clique/create/development/name"
-    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    parent: nil /*@"tt://clique/create/(initWithLat:)/(andLng:)"*/
     toViewController: [LoginViewController class]
     selector: nil
     transition: 0];
     
     [map from: @"tt://clique/create/structure/floors"
-    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"   
+    parent: nil /* @"tt://clique/create/(initWithLat:)/(andLng:)"   */
     toViewController: [LoginViewController class]
     selector: nil
     transition: 0];
     
+    
     [map from: @"tt://clique/create/structure/blocks"
-    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    parent: nil /*@"tt://clique/create/(initWithLat:)/(andLng:)"*/
     toViewController: [LoginViewController class]
     selector: nil
     transition: 0];
     
     [map from: @"tt://clique/create/development/name"
-    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    parent: nil /*@"tt://clique/create/(initWithLat:)/(andLng:)"*/
     toViewController: [LoginViewController class]
     selector: nil
     transition: 0];
     
     [map from: @"tt://clique/create/development/joining/privacy"
-    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    parent: nil /* @"tt://clique/create/(initWithLat:)/(andLng:)"*/
     toViewController: [LoginViewController class]
     selector: nil
     transition: 0];
    
     [map from: @"tt://clique/create/development/joining/privacy"
-    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    parent: nil /*@"tt://clique/create/(initWithLat:)/(andLng:)"*/
     toViewController: [LoginViewController class]
     selector: nil
     transition: 0];
     
     [map from:  @"tt://clique/create/development/joining/passwords"
-    parent: @"tt://clique/create/(initWithLat:)/(andLng:)"
+    parent: nil /* @"tt://clique/create/(initWithLat:)/(andLng:)"*/
     toViewController: [LoginViewController class]
     selector: nil
     transition: 0];
