@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CrumbTableSendController : TTTableViewController {
-    TTTableViewCell *lastselected;
+    TTTableViewCell *selected;
 }
 
 @end

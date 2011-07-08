@@ -43,33 +43,42 @@
                                                                       URL:@"nil" accessoryURL:nil];
     
    
+   
     self.dataSource = [CrumbSendDataSource dataSourceWithObjects: 
                        
                        @"What do you want to send?",
                        name,
                        
                        @"Who to?", 
-                       [TableCheckItem itemWithText:@"All Langbourne place" state:CheckMarkNone],
-                       [TableCheckItem itemWithText:@"Everyone" state:CheckMarkChecked],
+                       [TableCheckItem itemWithText:@"All Langbourne place" state:CheckMarkChecked],
+                       [TableCheckItem itemWithText:@"Everyone" state:CheckMarkNone],
                        [TTTableSubtitleItem itemWithText:@"Selected Apartments" subtitle:@"pick and chose the apartments in Langbourne you want to send to" imageURL:nil defaultImage:nil
                                                      URL:@"tt://clique/create/structure/blocks" accessoryURL:nil],
                        [TTTableSubtitleItem itemWithText:@"Selected neighbours" subtitle:@"pick and chose surrounding developments you want to send to" imageURL:nil defaultImage:nil
                                                      URL:@"tt://clique/create/structure/blocks" accessoryURL:nil],
                        nil
                        ];
-    lastselected = nil;
+    selected = nil;
+   
+   
 }
 
 -(void) didSelectObject:(id)object atIndexPath:(NSIndexPath *)indexPath{
     
+    NSLog(@"path is %@", indexPath);
    
-   
-    if (lastselected != nil)
+    if (selected == nil){
+        //bootstrap with default...
+        NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:1];
+        NSLog(@"default path is %@",path);
+        selected = (CheckmarkTableCell *) [self.tableView cellForRowAtIndexPath:path];
+    }
+    if (selected != nil)
     {
-        if ([lastselected isKindOfClass:[CheckmarkTableCell class]])
-            ((CheckmarkTableCell *)lastselected).state = CheckMarkNone;
+        if ([selected isKindOfClass:[CheckmarkTableCell class]])
+            ((CheckmarkTableCell *)selected).state = CheckMarkNone;
         else
-           lastselected.accessoryType = UITableViewCellAccessoryNone;     
+           selected.accessoryType = UITableViewCellAccessoryNone;     
     
     }
     
@@ -78,14 +87,14 @@
          
         CheckmarkTableCell *cell = (CheckmarkTableCell *) [self.tableView cellForRowAtIndexPath:indexPath];
         cell.state = !cell.item.state;
-        lastselected = cell;
+        selected = cell;
                 
     }else{
         
         TTTableViewCell* cell = (TTTableViewCell *) [self.tableView cellForRowAtIndexPath:indexPath];
         
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        lastselected = cell;
+        selected = cell;
         [super didSelectObject:object atIndexPath:indexPath];
     }
    
