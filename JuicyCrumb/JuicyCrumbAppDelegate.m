@@ -19,6 +19,7 @@
 #import "CreateCliqueDetailsViewController.h"
 #import "JoinCliqueViewController.h"
 #import "UserDetailsViewController.h"
+#import "BlockViewController.h"
 
 @implementation JuicyCrumbAppDelegate
 
@@ -65,6 +66,8 @@
     
     [map from:@"tt://clique/join?cliqueId=(initWithClique:)" toViewController:[JoinCliqueViewController class]];
 
+    [map from:@"tt://clique/navigate" toViewController:[BlockViewController class]];
+    
     [map from:@"tt://user/details" toViewController:[UserDetailsViewController class]];
 
     

@@ -75,6 +75,8 @@
 		A3E7FE4A13743E09003FFE37 /* CrumbDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FE4913743E09003FFE37 /* CrumbDetailController.m */; };
 		A3E7FEBE13796A71003FFE37 /* ResponseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FEBD13796A6C003FFE37 /* ResponseDataSource.m */; };
 		A3E7FEC113797426003FFE37 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FEC013797426003FFE37 /* Response.m */; };
+		A3F09D8913C9D53400C48858 /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F09D8813C9D53400C48858 /* BlockViewController.m */; };
+		A3F09D9113C9DE9E00C48858 /* apartmentwindow.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F09D9013C9DE9700C48858 /* apartmentwindow.png */; };
 		A3F2B51D13705EA000F35AAC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F2B51C13705EA000F35AAC /* TabBarController.m */; };
 		A3FB2BA813B9FF0C0010CCF1 /* DDAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB2BA513B9FF0C0010CCF1 /* DDAnnotation.m */; };
 		A3FB2BA913B9FF0C0010CCF1 /* DDAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB2BA713B9FF0C0010CCF1 /* DDAnnotationView.m */; };
@@ -356,6 +358,9 @@
 		A3E7FEBD13796A6C003FFE37 /* ResponseDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseDataSource.m; sourceTree = "<group>"; };
 		A3E7FEBF13797426003FFE37 /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
 		A3E7FEC013797426003FFE37 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
+		A3F09D8713C9D53400C48858 /* BlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlockViewController.h; path = JuicyCrumb.xcodeproj/BlockViewController.h; sourceTree = SOURCE_ROOT; };
+		A3F09D8813C9D53400C48858 /* BlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlockViewController.m; path = JuicyCrumb.xcodeproj/BlockViewController.m; sourceTree = SOURCE_ROOT; };
+		A3F09D9013C9DE9700C48858 /* apartmentwindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apartmentwindow.png; sourceTree = "<group>"; };
 		A3F2B51B13705EA000F35AAC /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		A3F2B51C13705EA000F35AAC /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		A3FB2BA413B9FF0C0010CCF1 /* DDAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAnnotation.h; sourceTree = "<group>"; };
@@ -616,6 +621,7 @@
 			isa = PBXGroup;
 			children = (
 				A303B95813C5E4DB004F4AD0 /* left.png */,
+				A3F09D9013C9DE9700C48858 /* apartmentwindow.png */,
 				A3FB2BAA13B9FF260010CCF1 /* Pin.png */,
 				A3FB2BAB13B9FF260010CCF1 /* PinDown1.png */,
 				A3FB2BAC13B9FF260010CCF1 /* PinDown2.png */,
@@ -629,6 +635,8 @@
 		A3889D76138FDF5500AD2E8B /* SendControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A3F09D8713C9D53400C48858 /* BlockViewController.h */,
+				A3F09D8813C9D53400C48858 /* BlockViewController.m */,
 				A3889D73138FCE1E00AD2E8B /* CrumbSendController.h */,
 				A3889D74138FCE1F00AD2E8B /* CrumbSendController.m */,
 				A3889D77138FE05F00AD2E8B /* CrumbSendCliqueController.h */,
@@ -944,6 +952,7 @@
 				A3FB2BB413B9FF260010CCF1 /* PinFloating.png in Resources */,
 				A3FB2BB513B9FF260010CCF1 /* PinShadow.png in Resources */,
 				A303B95913C5E4DB004F4AD0 /* left.png in Resources */,
+				A3F09D9113C9DE9E00C48858 /* apartmentwindow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,6 +1032,7 @@
 				A303B95C13C5F66D004F4AD0 /* TableCheckItem.m in Sources */,
 				A303B95F13C5F7FC004F4AD0 /* CheckmarkTableCell.m in Sources */,
 				A303B96213C5FA9E004F4AD0 /* CrumbSendDataSource.m in Sources */,
+				A3F09D8913C9D53400C48858 /* BlockViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
