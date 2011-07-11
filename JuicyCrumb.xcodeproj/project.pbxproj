@@ -71,12 +71,17 @@
 		A3D56B0A137D78E90081A0AE /* CrumbDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B09137D78E90081A0AE /* CrumbDataModel.m */; };
 		A3D56B0D137D79040081A0AE /* ResponseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B0C137D79010081A0AE /* ResponseDataModel.m */; };
 		A3D56B2713813D390081A0AE /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D56B2613813D390081A0AE /* NetworkManager.m */; };
+		A3E6472613CB5F260029FB4E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E6472413CB5F260029FB4E /* background.png */; };
+		A3E6472713CB5F260029FB4E /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E6472513CB5F260029FB4E /* page.png */; };
 		A3E7FBD81372EE2B003FFE37 /* ContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FBD71372EE2B003FFE37 /* ContentController.m */; };
 		A3E7FE4A13743E09003FFE37 /* CrumbDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FE4913743E09003FFE37 /* CrumbDetailController.m */; };
 		A3E7FEBE13796A71003FFE37 /* ResponseDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FEBD13796A6C003FFE37 /* ResponseDataSource.m */; };
 		A3E7FEC113797426003FFE37 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7FEC013797426003FFE37 /* Response.m */; };
 		A3F09D8913C9D53400C48858 /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F09D8813C9D53400C48858 /* BlockViewController.m */; };
 		A3F09D9113C9DE9E00C48858 /* apartmentwindow.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F09D9013C9DE9700C48858 /* apartmentwindow.png */; };
+		A3F09D9313CA42CC00C48858 /* wall.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F09D9213CA42CB00C48858 /* wall.png */; };
+		A3F09D9613CA43B800C48858 /* ApartmentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F09D9513CA43B700C48858 /* ApartmentWindow.m */; };
+		A3F09DBF13CB562800C48858 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F09DBE13CB562800C48858 /* iCarousel.m */; };
 		A3F2B51D13705EA000F35AAC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F2B51C13705EA000F35AAC /* TabBarController.m */; };
 		A3FB2BA813B9FF0C0010CCF1 /* DDAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB2BA513B9FF0C0010CCF1 /* DDAnnotation.m */; };
 		A3FB2BA913B9FF0C0010CCF1 /* DDAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB2BA713B9FF0C0010CCF1 /* DDAnnotationView.m */; };
@@ -350,6 +355,8 @@
 		A3D56B0C137D79010081A0AE /* ResponseDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseDataModel.m; sourceTree = "<group>"; };
 		A3D56B2513813D390081A0AE /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		A3D56B2613813D390081A0AE /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		A3E6472413CB5F260029FB4E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		A3E6472513CB5F260029FB4E /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
 		A3E7FBD61372EE2B003FFE37 /* ContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentController.h; sourceTree = "<group>"; };
 		A3E7FBD71372EE2B003FFE37 /* ContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentController.m; sourceTree = "<group>"; };
 		A3E7FE4813743E09003FFE37 /* CrumbDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbDetailController.h; sourceTree = "<group>"; };
@@ -361,6 +368,11 @@
 		A3F09D8713C9D53400C48858 /* BlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlockViewController.h; path = JuicyCrumb.xcodeproj/BlockViewController.h; sourceTree = SOURCE_ROOT; };
 		A3F09D8813C9D53400C48858 /* BlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlockViewController.m; path = JuicyCrumb.xcodeproj/BlockViewController.m; sourceTree = SOURCE_ROOT; };
 		A3F09D9013C9DE9700C48858 /* apartmentwindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apartmentwindow.png; sourceTree = "<group>"; };
+		A3F09D9213CA42CB00C48858 /* wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wall.png; sourceTree = "<group>"; };
+		A3F09D9413CA43B400C48858 /* ApartmentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentWindow.h; sourceTree = "<group>"; };
+		A3F09D9513CA43B700C48858 /* ApartmentWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApartmentWindow.m; sourceTree = "<group>"; };
+		A3F09DBD13CB562800C48858 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		A3F09DBE13CB562800C48858 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		A3F2B51B13705EA000F35AAC /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		A3F2B51C13705EA000F35AAC /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		A3FB2BA413B9FF0C0010CCF1 /* DDAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAnnotation.h; sourceTree = "<group>"; };
@@ -564,6 +576,8 @@
 		A31D519A13705C720094D3D3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A3F09DBC13CB560F00C48858 /* Carousel */,
+				A3F09D9213CA42CB00C48858 /* wall.png */,
 				A3FB2BA313B9FEE30010CCF1 /* Map */,
 				A3889CAF138E998A00AD2E8B /* images */,
 				A3BE913A137186A6004F6E8B /* data.json */,
@@ -620,6 +634,8 @@
 		A3889CAF138E998A00AD2E8B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3E6472413CB5F260029FB4E /* background.png */,
+				A3E6472513CB5F260029FB4E /* page.png */,
 				A303B95813C5E4DB004F4AD0 /* left.png */,
 				A3F09D9013C9DE9700C48858 /* apartmentwindow.png */,
 				A3FB2BAA13B9FF260010CCF1 /* Pin.png */,
@@ -651,6 +667,8 @@
 				A303B95E13C5F7FA004F4AD0 /* CheckmarkTableCell.m */,
 				A303B96013C5FA8A004F4AD0 /* CrumbSendDataSource.h */,
 				A303B96113C5FA8B004F4AD0 /* CrumbSendDataSource.m */,
+				A3F09D9413CA43B400C48858 /* ApartmentWindow.h */,
+				A3F09D9513CA43B700C48858 /* ApartmentWindow.m */,
 			);
 			name = SendControllers;
 			sourceTree = "<group>";
@@ -721,6 +739,15 @@
 				A3C5C29B1386AABF00FF413F /* KeychainManager.m */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		A3F09DBC13CB560F00C48858 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				A3F09DBD13CB562800C48858 /* iCarousel.h */,
+				A3F09DBE13CB562800C48858 /* iCarousel.m */,
+			);
+			name = Carousel;
 			sourceTree = "<group>";
 		};
 		A3FB2BA313B9FEE30010CCF1 /* Map */ = {
@@ -953,6 +980,9 @@
 				A3FB2BB513B9FF260010CCF1 /* PinShadow.png in Resources */,
 				A303B95913C5E4DB004F4AD0 /* left.png in Resources */,
 				A3F09D9113C9DE9E00C48858 /* apartmentwindow.png in Resources */,
+				A3F09D9313CA42CC00C48858 /* wall.png in Resources */,
+				A3E6472613CB5F260029FB4E /* background.png in Resources */,
+				A3E6472713CB5F260029FB4E /* page.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1033,6 +1063,8 @@
 				A303B95F13C5F7FC004F4AD0 /* CheckmarkTableCell.m in Sources */,
 				A303B96213C5FA9E004F4AD0 /* CrumbSendDataSource.m in Sources */,
 				A3F09D8913C9D53400C48858 /* BlockViewController.m in Sources */,
+				A3F09D9613CA43B800C48858 /* ApartmentWindow.m in Sources */,
+				A3F09DBF13CB562800C48858 /* iCarousel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
