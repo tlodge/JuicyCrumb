@@ -13,10 +13,19 @@
     //UIView *aview; 
     NSMutableArray *floors;
     iCarousel *carousel;
+    iCarousel *newcarousel;
+    
+    UIView* selectedView;
+    
+    UIView* oldWall;
+    UIView* currentWall;
+    
+    UIView *up;
     //UINavigationItem *navItem;
 }
 
-@property (nonatomic, retain)  iCarousel *carousel;
+//@property (nonatomic, retain)  iCarousel *carousel;
+
 //@property (nonatomic, retain)  UINavigationItem *navItem;
 
 @end
