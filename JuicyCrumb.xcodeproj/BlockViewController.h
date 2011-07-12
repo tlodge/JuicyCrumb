@@ -21,6 +21,7 @@
     UIView* currentWall;
     
     UIView *up;
+    UIView *down;
     //UINavigationItem *navItem;
 }
 

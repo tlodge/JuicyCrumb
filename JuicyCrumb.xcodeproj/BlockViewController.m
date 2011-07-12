@@ -44,28 +44,6 @@
         {
             [items addObject:[NSNumber numberWithInt:i]];
         }
-        
-        
-        
-        //floors = [[[NSMutableArray alloc] init] retain];
-        
-        /* for (int i = 0; i < 6; i++){
-         
-         CGRect frame = CGRectMake(10+ (i * 50),5,50,50);
-         
-         UIView* background = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 50, 50)];
-         [background setBackgroundColor:[UIColor blackColor]];
-         [aview addSubview:background];
-         aview.background = background;
-         [aview addSubview:background];
-         
-         UIImageView *aview = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"apartmentwindow.png"]];
-         aview.frame = frame;
-         [aview setBackgroundColor:[UIColor whiteColor]];
-         [self.view addSubview:aview];
-         [floors addObject:aview];
-         [aview release];
-         }*/
     }
     return self;
 }
@@ -81,41 +59,82 @@
     UITouch *touch = [touches anyObject]; 
     CGPoint touchLocation = [touch locationInView:self.view];
     
-    if (CGRectContainsPoint( up.frame , touchLocation)){
-        
-        NSLog(@"touched me...");
-        selectedView = NULL;
-        oldWall = currentWall;
-        [up removeFromSuperview];
-        
-        currentWall = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wall.png"]];
-        currentWall.frame = CGRectMake(0, -480, currentWall.frame.size.width, currentWall.frame.size.height);
-        [self.view addSubview:currentWall];
-        [currentWall release];
-        
-        newcarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0,-480,self.view.frame.size.width, self.view.frame.size.height)];
-        newcarousel.delegate = self;
-        newcarousel.dataSource = self;
-        newcarousel.type = iCarouselTypeCoverFlow;//Linear;// Cylinder;//iCarouselTypeCoverFlow;
-        wrap = YES;
-        [self.view addSubview:newcarousel];
-        [newcarousel release];
-        
-        [super touchesBegan:touches withEvent:event];
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:1.75];
-        [UIView setAnimationDelegate:self];
-        [UIView setAnimationDidStopSelector:@selector(changedFloor:finished:context:)];
-        
-        
-        oldWall.frame = CGRectMake(0, 480, oldWall.frame.size.width, oldWall.frame.size.height);
-        currentWall.frame = CGRectMake(0, 0, currentWall.frame.size.width, currentWall.frame.size.height);
-        newcarousel.frame = CGRectMake(0,0,newcarousel.frame.size.width, newcarousel.frame.size.height);
-        carousel.frame = CGRectMake(0, 480, carousel.frame.size.width, carousel.frame.size.height);
-        
-        [UIView commitAnimations];
-    }
-    
+           
+        if (CGRectContainsPoint( up.frame , touchLocation) || CGRectContainsPoint( down.frame , touchLocation)){
+            int multiplier = 1;
+            
+            if (CGRectContainsPoint( down.frame , touchLocation))
+                multiplier = -1;
+            
+            NSLog(@"touched me...");
+            selectedView = NULL;
+            up.alpha = 0.0;
+            down.alpha = 0.0;
+            oldWall = currentWall;
+            
+            
+            currentWall = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wall.png"]];
+            currentWall.frame = CGRectMake(0, multiplier * -480, currentWall.frame.size.width, currentWall.frame.size.height);
+            [self.view addSubview:currentWall];
+            [currentWall release];
+            
+            newcarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0,multiplier*-480,self.view.frame.size.width, self.view.frame.size.height)];
+            newcarousel.delegate = self;
+            newcarousel.dataSource = self;
+            newcarousel.type = iCarouselTypeCoverFlow;//Linear;// Cylinder;//iCarouselTypeCoverFlow;
+            wrap = YES;
+            [self.view addSubview:newcarousel];
+            [newcarousel release];
+            
+            [super touchesBegan:touches withEvent:event];
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:1.75];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDidStopSelector:@selector(changedFloor:finished:context:)];
+            
+            
+            oldWall.frame = CGRectMake(0, multiplier*480, oldWall.frame.size.width, oldWall.frame.size.height);
+            currentWall.frame = CGRectMake(0, 0, currentWall.frame.size.width, currentWall.frame.size.height);
+            newcarousel.frame = CGRectMake(0,0,newcarousel.frame.size.width, newcarousel.frame.size.height);
+            carousel.frame = CGRectMake(0, multiplier*480, carousel.frame.size.width, carousel.frame.size.height);
+            
+            [UIView commitAnimations];
+        }
+    /*
+        else if (CGRectContainsPoint( down.frame , touchLocation)){
+            selectedView = NULL;
+            up.alpha = 0.0;
+            down.alpha = 0.0;
+            oldWall = currentWall;
+            
+            
+            currentWall = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wall.png"]];
+            currentWall.frame = CGRectMake(0, 480, currentWall.frame.size.width, currentWall.frame.size.height);
+            [self.view addSubview:currentWall];
+            [currentWall release];
+            
+            newcarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0,480,self.view.frame.size.width, self.view.frame.size.height)];
+            newcarousel.delegate = self;
+            newcarousel.dataSource = self;
+            newcarousel.type = iCarouselTypeCoverFlow;//Linear;// Cylinder;//iCarouselTypeCoverFlow;
+            wrap = YES;
+            [self.view addSubview:newcarousel];
+            [newcarousel release];
+            
+            [super touchesBegan:touches withEvent:event];
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:1.75];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDidStopSelector:@selector(changedFloor:finished:context:)];
+            
+            
+            oldWall.frame = CGRectMake(0, -480, oldWall.frame.size.width, oldWall.frame.size.height);
+            currentWall.frame = CGRectMake(0, 0, currentWall.frame.size.width, currentWall.frame.size.height);
+            newcarousel.frame = CGRectMake(0,0,newcarousel.frame.size.width, newcarousel.frame.size.height);
+            carousel.frame = CGRectMake(0, -480, carousel.frame.size.width, carousel.frame.size.height);
+            
+            [UIView commitAnimations];
+        }*/
 }
 
 
@@ -124,33 +143,19 @@
     carousel = newcarousel;
     
     [oldWall removeFromSuperview];
-    up = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Pin.png"]];
+    [up removeFromSuperview];
+    [down removeFromSuperview];
+    
+    down = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"down.png"]];
+    down.frame = CGRectMake(self.view.frame.size.width/2 - down.frame.size.width/2, 330, down.frame.size.width, down.frame.size.height);
+    [self.view addSubview:down];
+    [down release];
+    
+    up = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"up.png"]];
+    up.frame = CGRectMake(self.view.frame.size.width/2 - up.frame.size.width/2 , 10, up.frame.size.width, up.frame.size.height);
     [self.view addSubview:up];
     [up release];
 }
-/*
- UITouch *touch = [touches anyObject]; 
- CGPoint touchLocation = [touch locationInView:self.view];
- 
- for (UIView* aview in floors){ 
- if (CGRectContainsPoint( aview.frame , touchLocation)){
- [aview removeFromSuperview];
- [self.view addSubview:aview];
- [UIView beginAnimations:nil context:nil];
- [UIView setAnimationDuration:0.75];
- [UIView setAnimationDelegate:self];
- 
- aview.backgroundColor = [UIColor yellowColor];
- 
- 
- aview.frame = self.view.frame;
- 
- 
- [UIView commitAnimations];
- return;
- }
- }
- }*/
 
 - (void)didReceiveMemoryWarning
 {
@@ -178,9 +183,16 @@
     [self.view addSubview:currentWall];
     [currentWall release];
     
-    up = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Pin.png"]];
+    up = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"up.png"]];
+    up.frame = CGRectMake(self.view.frame.size.width/2 - up.frame.size.width/2, 10, up.frame.size.width, up.frame.size.height);
     [self.view addSubview:up];
     [up release];
+    
+    
+    down = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"down.png"]];
+    down.frame = CGRectMake(self.view.frame.size.width/2 - down.frame.size.width/2, 330, down.frame.size.width, down.frame.size.height);
+    [self.view addSubview:down];
+    [down release];
     
     carousel = [[iCarousel alloc] initWithFrame:self.view.frame];
     carousel.delegate = self;
@@ -335,6 +347,9 @@
 {
 	NSLog(@"Carousel will begin scrolling");
     if (selectedView != NULL){
+        up.alpha = 1.0;
+        down.alpha = 1.0;
+
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.5];
         [UIView setAnimationDelegate:self];
@@ -361,8 +376,6 @@
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.75];
         [UIView setAnimationDelegate:self];
-        //UIView *aview = [self carousel:_carousel viewForItemAtIndex:index];
-        //[aview removeFromSuperview];
         selectedView = NULL;
         
         for (UIView *view in carousel.visibleViews)
@@ -373,31 +386,13 @@
                 view.superview.bounds = view.bounds;
                 view.center = CGPointMake(view.bounds.size.width/2.0, view.bounds.size.height/2.0);
                 selectedView = view;
+                up.alpha = 0.0;
+                down.alpha = 0.0;
                 
             }
         }
         [UIView commitAnimations];
     }
-	else
-	{
-        /*
-         NSLog(@"Selected item number %i", index);
-         [UIView beginAnimations:nil context:nil];
-         [UIView setAnimationDuration:0.75];
-         [UIView setAnimationDelegate:self];
-         //UIView *aview = [self carousel:_carousel viewForItemAtIndex:index];
-         //[aview removeFromSuperview];
-         for (UIView *view in carousel.visibleViews)
-         {
-         NSLog(@"setting background clor");
-         view.backgroundColor = [UIColor yellowColor];
-         view.frame = self.view.frame;
-         }
-         
-         //aview.frame = self.view.frame;
-         [UIView commitAnimations];
-         */
-	}
 }
 
 #pragma mark -
